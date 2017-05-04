@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginTop="7dp"
+            android:layout_gravity="center_horizontal"
+            android:text="09:00 - 10:00"
+            android:background="@android:color/background_dark"
+            android:textAlignment="center" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:orientation="horizontal">
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:text="1" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:text="2" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:text="3" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="4" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="5" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="7dp"
+                android:layout_marginRight="7dp"
+                android:orientation="horizontal">
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="6" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="7" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="8" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="9" />
+
+                <tkmms.com.bookingcourt.BCButton
+                    android:id="@+id/btnCourt10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="3dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_weight="1"
+                    android:visibility="visible"
+                    android:text="10" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+</RelativeLayout>

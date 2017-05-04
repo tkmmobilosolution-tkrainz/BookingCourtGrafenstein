@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.0.2_df512f96109d2993f58fb07dd7c8b00a58318e41/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/.android/build-cache/d7e225b2fd9d74f9af921c6c056c5749ffd0bf9f/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_925ecdc61a9dfd2dda6157c166f1447fddac4102/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/.android/build-cache/125ab27d16da3dc0479aa26b4cd5dbad97702a49/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_138cb8da642864836367bbf3993ab0e790278d9e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="704a5bc2895dc95e198e65bddcc49457cdf97d07">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_cf90450776db0f2801212de93d4eed590b611041/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/.android/build-cache/db52f7c20e5c798a05b2fd3236ef4dddc1420b22/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9b674b022bbdab68475693327288ad714dbcaf50/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_24d155accb764323e7568c7fd2f588825b85f200/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/.android/build-cache/1269584d742d38223063914bb39314bc6b3764f1/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0194534a25ae640c8dbdc234b45c8faf729ccd82/classes.dex" />
+    </item>
+
+</items>
