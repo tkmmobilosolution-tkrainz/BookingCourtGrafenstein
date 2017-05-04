@@ -1,8 +1,7 @@
-package tkmms.com.bookingcourt;
+package tkmms.com.BookingCourtGrafenstein;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 /**

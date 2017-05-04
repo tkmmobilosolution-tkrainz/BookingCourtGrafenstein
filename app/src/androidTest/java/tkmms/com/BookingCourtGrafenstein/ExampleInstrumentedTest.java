@@ -1,4 +1,4 @@
-package tkmms.com.bookingcourt;
+package tkmms.com.BookingCourtGrafenstein;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

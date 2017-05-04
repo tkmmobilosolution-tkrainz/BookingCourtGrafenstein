@@ -30,6 +30,24 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_92621c763e001ff37f7572ac8e56c29bd3ee6980/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4592fa19e1d970d2003369af2c648ced5e6ca0d7">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d85a2edb9f604a78e7e01ccc56a59f9c857b5a14/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/tkrainz/Desktop/BookingCourt2/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"

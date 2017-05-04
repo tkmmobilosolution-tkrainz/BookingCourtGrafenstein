@@ -1,4 +1,4 @@
-package tkmms.com.bookingcourt;
+package tkmms.com.BookingCourtGrafenstein;
 
 import org.junit.Test;
 
