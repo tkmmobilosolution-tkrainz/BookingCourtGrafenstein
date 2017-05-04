@@ -10,3 +10,5 @@ local.properties
 *.iml
 .gradle
 build/
+*.bin
+*.lock
