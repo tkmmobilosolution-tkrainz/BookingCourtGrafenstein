@@ -28,6 +28,15 @@
 
         <activity android:name=".BookCourtActivity">
         </activity>
+
+        <activity android:name=".AddMemberActivity">
+        </activity>
+
+        <activity android:name=".AdminOverlayActivity">
+        </activity>
+
+        <activity android:name=".CloseCourtActivity">
+        </activity>
     </application>
 
 </manifest>
