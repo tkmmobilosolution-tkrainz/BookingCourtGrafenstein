@@ -13,6 +13,8 @@ import android.widget.Button;
 public class LoginActivity extends AppCompatActivity {
 
     private boolean isUserAdmin = false;
+
+    private boolean isFirstUserLogin = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,10 +26,17 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (isUserAdmin) {
-
-                } else {
-                    Intent intent = new Intent(getApplicationContext(), FirstLoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), AdminOverlayActivity.class);
                     startActivity(intent);
+                } else {
+
+                    if (isFirstUserLogin) {
+                        Intent intent = new Intent(getApplicationContext(), FirstLoginActivity.class);
+                        startActivity(intent);
+                    }  {
+                        Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                        startActivity(intent);
+                    }
                 }
             }
         });
