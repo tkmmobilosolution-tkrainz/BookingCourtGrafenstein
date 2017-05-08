@@ -32,10 +32,16 @@
         <activity android:name=".AddMemberActivity">
         </activity>
 
-        <activity android:name=".AdminOverlayActivity">
+        <activity android:name=".AdminOverviewActivity">
         </activity>
 
         <activity android:name=".CloseCourtActivity">
+        </activity>
+
+        <activity android:name=".MemberOverviewActivity">
+        </activity>
+
+        <activity android:name=".MemberDetailActivity">
         </activity>
     </application>
 

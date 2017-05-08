@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean isUserAdmin = false;
 
-    private boolean isFirstUserLogin = false;
+    private boolean isFirstUserLogin = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,14 +26,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (isUserAdmin) {
-                    Intent intent = new Intent(getApplicationContext(), AdminOverlayActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), AdminOverviewActivity.class);
                     startActivity(intent);
                 } else {
 
                     if (isFirstUserLogin) {
                         Intent intent = new Intent(getApplicationContext(), FirstLoginActivity.class);
                         startActivity(intent);
-                    }  {
+                    } else  {
                         Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
                         startActivity(intent);
                     }
