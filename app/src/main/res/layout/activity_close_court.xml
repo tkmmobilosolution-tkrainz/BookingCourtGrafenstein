@@ -10,8 +10,8 @@
         android:layout_gravity="center"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="45dp"
         android:textAlignment="center"
         android:text="Hier kannst du die Plätze für einen gewissen Zeitraum sperren." />
 

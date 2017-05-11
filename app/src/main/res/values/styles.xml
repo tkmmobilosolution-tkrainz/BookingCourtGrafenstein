@@ -5,7 +5,31 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@android:color/holo_red_dark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BCButtonGreen" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_green_dark</item>
+    </style>
+
+    <style name="BCButtonRed" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="BCButtonBlue" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_blue_dark</item>
+    </style>
+
+    <style name="BCButtonOrange" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_orange_dark</item>
+    </style>
+
+    <style name="SwitchActive" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/bc_green</item>
+    </style>
+
+    <style name="TextViewTop" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_marginTop">25dp</item>
     </style>
 
 </resources>

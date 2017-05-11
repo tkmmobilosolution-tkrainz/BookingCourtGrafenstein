@@ -7,12 +7,31 @@
         android:id="@+id/textView11"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="45dp"
         android:layout_marginRight="7dp"
         android:layout_marginLeft="7dp"
         android:textAlignment="center"
         android:text="Hier kannst du neue Mitglieder anlegen. Erst nachdem du ein Mitglied angelgt hast, kann sich dises Mitglied in der App anmelden." />
+
+    <TextView
+        android:id="@+id/textView123"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginBottom="3dp"
+        android:text="Email" />
+
+    <EditText
+        android:id="@+id/editText51"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="7dp"
+        android:inputType="textPersonName"
+        android:text="Email" />
 
     <TextView
         android:id="@+id/textView12"
@@ -56,10 +75,11 @@
         android:id="@+id/switch1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:layout_marginBottom="10dp"
         android:checked="true"
+        android:theme="@style/SwitchActive"
         android:text="Mitgliedbeitrag bezahlt" />
 
     <Button

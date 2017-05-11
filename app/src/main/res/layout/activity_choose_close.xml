@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="45dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="Hier kannst du deine Tennisplätze sperren. Entweder den ganzen heutigen Tag oder für einen gewünschten Zeitraum." />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="Heute sperren" />
+
+    <Button
+        android:id="@+id/btn_choose_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="Zeitraum wählen" />
+
+</LinearLayout>

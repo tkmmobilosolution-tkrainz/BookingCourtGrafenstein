@@ -43,6 +43,10 @@
 
         <activity android:name=".MemberDetailActivity">
         </activity>
+
+        <activity android:name=".ChooseCloseActivity">
+        </activity>
+
     </application>
 
 </manifest>

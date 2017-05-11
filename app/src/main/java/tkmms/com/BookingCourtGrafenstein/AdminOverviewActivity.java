@@ -42,7 +42,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
                     Intent intent = new Intent(getApplicationContext(), MemberOverviewActivity.class);
                     startActivity(intent);
                 } else if (position == 2) {
-                    Intent intent = new Intent(getApplicationContext(), CloseCourtActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), ChooseCloseActivity.class);
                     startActivity(intent);
                 }
             }

@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private boolean isUserAdmin = false;
 
-    private boolean isFirstUserLogin = true;
+    private boolean isFirstUserLogin = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +41,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
 
     @Override
     public void onBackPressed() {

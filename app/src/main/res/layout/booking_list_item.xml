@@ -11,12 +11,11 @@
 
         <TextView
             android:id="@+id/tvTime"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="20dp"
             android:layout_marginTop="7dp"
             android:layout_gravity="center_horizontal"
             android:text="09:00 - 10:00"
-            android:background="@android:color/background_dark"
             android:textAlignment="center" />
 
         <LinearLayout
@@ -29,7 +28,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
                     android:id="@+id/btnCourt1"
@@ -40,7 +40,9 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:text="1" />
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                    android:text="1"/>
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
                     android:id="@+id/btnCourt2"
@@ -51,7 +53,10 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:text="2" />
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                    android:maxLength="8"
+                    android:text="Deutschmann" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
                     android:id="@+id/btnCourt3"
@@ -62,7 +67,10 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:text="3" />
+                    android:maxLines="1"
+                    android:textSize="12sp"
+                    android:maxLength="8"
+                    android:text="Training" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
                     android:id="@+id/btnCourt4"
@@ -73,7 +81,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:text="4" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -85,7 +93,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:text="5" />
             </LinearLayout>
 
@@ -94,7 +102,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="7dp"
                 android:layout_marginRight="7dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:baselineAligned="false">
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
                     android:id="@+id/btnCourt6"
@@ -105,7 +114,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:text="6" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -117,7 +126,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:text="7" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -129,8 +138,8 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
-                    android:text="8" />
+                    android:visibility="gone"
+                    android:text="TESTTEST" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
                     android:id="@+id/btnCourt9"
@@ -141,7 +150,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:text="9" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -153,7 +162,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="visible"
+                    android:visibility="gone"
                     android:text="10" />
             </LinearLayout>
         </LinearLayout>
