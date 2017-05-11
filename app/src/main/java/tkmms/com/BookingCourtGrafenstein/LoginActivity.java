@@ -12,7 +12,7 @@ import android.widget.Button;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private boolean isUserAdmin = false;
+    private boolean isUserAdmin = true;
 
     private boolean isFirstUserLogin = false;
     @Override

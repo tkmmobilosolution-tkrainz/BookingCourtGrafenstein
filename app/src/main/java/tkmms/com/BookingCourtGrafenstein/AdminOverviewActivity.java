@@ -48,4 +48,8 @@ public class AdminOverviewActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }
