@@ -81,7 +81,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="4" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -93,7 +93,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="5" />
             </LinearLayout>
 
@@ -114,7 +114,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="6" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -126,7 +126,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="7" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -138,7 +138,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:text="TESTTEST" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -150,7 +150,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:text="9" />
 
                 <tkmms.com.BookingCourtGrafenstein.BCButton
@@ -162,7 +162,7 @@
                     android:layout_marginRight="3dp"
                     android:layout_marginTop="3dp"
                     android:layout_weight="1"
-                    android:visibility="gone"
+                    android:visibility="invisible"
                     android:text="10" />
             </LinearLayout>
         </LinearLayout>
