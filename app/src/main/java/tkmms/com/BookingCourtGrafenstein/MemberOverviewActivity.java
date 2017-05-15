@@ -4,13 +4,17 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -37,20 +41,16 @@ public class MemberOverviewActivity extends AppCompatActivity {
     private String[] listOptions = new String[] {"Mitglied Eins", "Mitglied zwei", "Mitglied drei"};
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<BCUser> users = new ArrayList<BCUser>();
+    private DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users");
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_member_overview);
 
-        final Gson gson = new Gson();
-        final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users");
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String, BCUser> userMap = (Map<String, BCUser>) dataSnapshot.getValue();
+    ValueEventListener eventListener = new ValueEventListener() {
+        @Override
+        public void onDataChange(DataSnapshot dataSnapshot) {
+            Map<String, BCUser> userMap = (Map<String, BCUser>) dataSnapshot.getValue();
+            if (userMap != null) {
+
                 TreeMap<String, BCUser> treemap = new TreeMap<String, BCUser>(userMap);
-
 
                 Iterator basicIterator = treemap.entrySet().iterator();
                 while (basicIterator.hasNext()) {
@@ -71,33 +71,40 @@ public class MemberOverviewActivity extends AppCompatActivity {
 
                     users.add(currentUser);
                 }
-
-                Collections.sort(users, new CustomComparator());
-
-                for (BCUser currentUser: users) {
-                    listItems.add(currentUser.getLastname() + ", " + currentUser.getFirstname());
-                }
-
-                ListView adminListView = (ListView) findViewById(R.id.listView_member);
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1, listItems);
-                adminListView.setAdapter(adapter);
-
-                adminListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        BCUser clickedUser = users.get(position);
-
-                        Intent intent = new Intent(getApplicationContext(), MemberDetailActivity.class);
-                        intent.putExtra("user", clickedUser);
-                        startActivity(intent);
-                    }
-                });
+            } else {
+                users = null;
             }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
+            showMemberList();
+        }
+
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+        }
+    };
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_member_overview);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        database.addValueEventListener(eventListener);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        database.removeEventListener(eventListener);
     }
 
     @Override
@@ -119,5 +126,58 @@ public class MemberOverviewActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void showMemberList() {
+
+        if (users != null) {
+            Collections.sort(users, new CustomComparator());
+
+            for (BCUser currentUser: users) {
+                listItems.add(currentUser.getLastname() + ", " + currentUser.getFirstname());
+            }
+
+            ListView adminListView = (ListView) findViewById(R.id.listView_member);
+            MemberListAdapter adapter = new MemberListAdapter(this, users);
+            adminListView.setAdapter(adapter);
+
+            adminListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    BCUser clickedUser = users.get(position);
+
+                    Intent intent = new Intent(getApplicationContext(), MemberDetailActivity.class);
+                    intent.putExtra("user", clickedUser);
+                    startActivity(intent);
+                }
+            });
+        } else {
+            showHint();
+        }
+    }
+
+    private void showHint() {
+        LayoutInflater inflater = this.getLayoutInflater();
+        final View hintAlertView = inflater.inflate(R.layout.hint, null);
+
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(this);
+        TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+        TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+
+        hintTitleView.setText("Hinweis");
+        hintMessageView.setText("Im Verein sind noch keine Mitglieder registriert.");
+        final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+        dialogHintBuilder.setView(hintAlertView);
+        final AlertDialog hintAlertDialog = dialogHintBuilder.create();
+
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hintAlertDialog.dismiss();
+                onBackPressed();
+            }
+        });
+
+        hintAlertDialog.show();
     }
 }

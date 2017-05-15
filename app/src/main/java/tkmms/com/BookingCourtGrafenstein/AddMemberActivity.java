@@ -37,6 +37,7 @@ public class AddMemberActivity extends AppCompatActivity {
     private String email, firstName, lastName;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private long payment = 0;
+    private long admin = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +99,7 @@ public class AddMemberActivity extends AppCompatActivity {
                     database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").setValue(email);
                     database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("firstname").setValue(firstName);
                     database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("lastname").setValue(lastName);
-                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("admin").setValue(0);
+                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("admin").setValue(admin);
                     database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("payment").setValue(payment);
 
                     FirebaseAuth.getInstance().signOut();
