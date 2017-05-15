@@ -1,5 +1,6 @@
 package tkmms.com.BookingCourtGrafenstein;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -15,6 +16,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +44,7 @@ public class MemberOverviewActivity extends AppCompatActivity {
     ArrayList<String> listItems = new ArrayList<String>();
     ArrayList<BCUser> users = new ArrayList<BCUser>();
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users");
-
+    private ProgressDialog progressDialog = null;
 
     ValueEventListener eventListener = new ValueEventListener() {
         @Override
@@ -88,11 +90,16 @@ public class MemberOverviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_overview);
 
+        progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progressDialog.setMessage("Daten werden geladen");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        progressDialog.show();
         database.addValueEventListener(eventListener);
     }
 
@@ -122,6 +129,7 @@ public class MemberOverviewActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = prefs.edit();
             editor.remove("USER");
             editor.apply();
+            Toast.makeText(this, "Du hast dich erfolgreich abgemeldet", Toast.LENGTH_LONG).show();
             Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
             startActivity(intent);
         }
@@ -129,6 +137,7 @@ public class MemberOverviewActivity extends AppCompatActivity {
     }
 
     private void showMemberList() {
+        progressDialog.hide();
 
         if (users != null) {
             Collections.sort(users, new CustomComparator());
