@@ -7,14 +7,14 @@
         android:id="@+id/textView6"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-
         android:layout_marginTop="25dp"
-        android:layout_marginBottom="45dp"        android:layout_width="wrap_content"
+        android:layout_marginBottom="45dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:textAlignment="center"
-        android:text="Bitte wähle dein persönliches Passwort um die Sicherheit deines Profils zu gewährleisten" />
+        android:text="Bitte wähle dein persönliches Passwort um die Sicherheit deines Profils zu gewährleisten.\n\nDas Passwort muss mindestens acht Zeichen lang sein." />
 
     <TextView
         android:id="@+id/textView7"
@@ -64,9 +64,11 @@
         android:id="@+id/btnChangePwd"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_below="@id/et_second_password"
         android:text="Anmelden"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:theme="@style/BCButtonNormal" />
 
     <TextView
         android:id="@+id/textView9"
@@ -77,5 +79,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:textAlignment="center"
         android:text="Beim nächsten Anmeldevorgang wird das neue Passwort benötigt" />
 </RelativeLayout>

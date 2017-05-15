@@ -20,7 +20,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:text="Heute sperren" />
+        android:text="Heute sperren"
+        android:theme="@style/BCButtonNormal" />
 
     <Button
         android:id="@+id/btn_choose_time"
@@ -29,6 +30,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:text="Zeitraum wählen" />
+        android:text="Zeitraum wählen"
+        android:theme="@style/BCButtonNormal" />
 
 </LinearLayout>

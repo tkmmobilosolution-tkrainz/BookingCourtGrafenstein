@@ -84,5 +84,6 @@
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Mitglied anlegen" />
+        android:text="Mitglied anlegen"
+        android:theme="@style/BCButtonNormal"/>
 </LinearLayout>

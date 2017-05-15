@@ -61,7 +61,8 @@
         android:layout_below="@+id/et_login_password"
         android:text="Anmelden"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:theme="@style/BCButtonNormal"/>
 
     <TextView
         android:id="@+id/textView5"

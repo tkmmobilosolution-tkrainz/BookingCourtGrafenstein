@@ -24,12 +24,21 @@
         <item name="colorButtonNormal">@android:color/holo_orange_dark</item>
     </style>
 
+    <style name="BCButtonNormal" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
     <style name="SwitchActive" parent="Theme.AppCompat.Light">
         <item name="colorControlActivated">@color/bc_green</item>
     </style>
 
     <style name="TextViewTop" parent="@android:style/TextAppearance.Widget.TextView">
         <item name="android:layout_marginTop">25dp</item>
+    </style>
+
+    <style name="CalendarStyle" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
     <style name="SpinnerTheme" parent="android:Theme.Holo.Dialog">
