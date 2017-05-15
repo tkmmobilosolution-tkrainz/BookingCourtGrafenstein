@@ -23,15 +23,14 @@
         android:text="Vorname" />
 
     <EditText
-        android:id="@+id/editText51"
+        android:id="@+id/et_detail_first_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginBottom="7dp"
-        android:inputType="textPersonName"
-        android:text="Name" />
+        android:inputType="textPersonName" />
 
     <TextView
         android:id="@+id/textView131"
@@ -42,18 +41,17 @@
         android:text="Nachname" />
 
     <EditText
-        android:id="@+id/editText61"
+        android:id="@+id/et_detail_last_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:layout_marginBottom="7dp"
-        android:text="Name" />
+        android:layout_marginBottom="7dp"/>
 
     <Switch
-        android:id="@+id/switch11"
+        android:id="@+id/switch_detail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
@@ -64,7 +62,7 @@
         android:text="Mitgliedbeitrag bezahlt" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/btn_update_member"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

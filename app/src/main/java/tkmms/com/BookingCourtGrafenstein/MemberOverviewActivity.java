@@ -58,7 +58,6 @@ public class MemberOverviewActivity extends AppCompatActivity {
                 while (basicIterator.hasNext()) {
                     Map.Entry pair = (Map.Entry) basicIterator.next();
 
-
                     HashMap<String, String> userDetaiMap = (HashMap<String, String>) pair.getValue();
                     String admin = String.valueOf(userDetaiMap.get("admin"));
                     String payment = String.valueOf(userDetaiMap.get("payment"));
@@ -71,7 +70,9 @@ public class MemberOverviewActivity extends AppCompatActivity {
                     currentUser.setPayment(Long.parseLong(payment));
                     currentUser.setId((String) pair.getKey());
 
-                    users.add(currentUser);
+                    if (currentUser.getAdmin() != 1) {
+                        users.add(currentUser);
+                    }
                 }
             } else {
                 users = null;
