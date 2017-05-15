@@ -1,5 +1,6 @@
 package tkmms.com.BookingCourtGrafenstein;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -7,8 +8,10 @@ import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SwitchCompat;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +19,8 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,6 +43,9 @@ public class AddMemberActivity extends AppCompatActivity {
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private long payment = 0;
     private long admin = 0;
+    private ProgressDialog progressDialog = null;
+    private TextView hintTitleView, hintMessageView;
+    private AlertDialog hintAlertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +56,29 @@ public class AddMemberActivity extends AppCompatActivity {
         final EditText etFirstName = (EditText) findViewById(R.id.et_add_firstname);
         final EditText etLastName = (EditText) findViewById(R.id.et_add_lastname);
         final Switch paymentSwitch = (Switch)findViewById(R.id.add_switch);
+
+        progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progressDialog.setMessage("Mitglied wird angelegt");
+
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddMemberActivity.this);
+        final View hintAlertView = inflater.inflate(R.layout.hint, null);
+        hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+        hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+        final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hintAlertDialog.dismiss();
+            }
+        });
+
+        dialogHintBuilder.setView(hintAlertView);
+        hintAlertDialog = dialogHintBuilder.create();
 
         paymentSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
@@ -70,21 +101,30 @@ public class AddMemberActivity extends AppCompatActivity {
         addMemeberButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                progressDialog.show();
                 email = etEmail.getText().toString();
                 firstName = etFirstName.getText().toString();
                 lastName = etLastName.getText().toString();
 
-                registerMemeberWithEmial();
+                if (!emailFormat(email)) {
+                    showHintAlertDialog("Hinweis", "Die von dir angegebene Email Adresse entspricht nicht dem gewünschten Format.\n\nBeispiel: bookingcourt@beispiel.com");
+                } else if (firstName.length() <= 0 || lastName.length() <= 0) {
+                    showHintAlertDialog("Hinweis", "Die Eingabe ist nicht vollständig. Bitte überprüfe alle Felder und versuche es dann erneut.");
+                } else {
+                    registerMemeberWithEmial();
+                }
             }
         });
     }
 
     private void createUserFailed(Task<AuthResult> task) {
+        progressDialog.hide();
         FirebaseAuthException exception = (FirebaseAuthException) task.getException();
         if (exception.getErrorCode().equals("ERROR_EMAIL_ALREADY_IN_USE")) {
-            // email in use
+            showHintAlertDialog("Fehler", "Die Email Adresse wird schon verwendet. Bitte gib eine andere Adresse ein.");
         } else {
-            // default error
+            showHintAlertDialog("Fehler", "Ein Fehler ist aufgetretten. Versuche es später noch einmal.");
         }
     }
 
@@ -110,6 +150,10 @@ public class AddMemberActivity extends AppCompatActivity {
 
                         }
                     });
+
+                    progressDialog.hide();
+                    Toast.makeText(getApplicationContext(), "Mitglied wurde angelegt", Toast.LENGTH_LONG).show();
+                    onBackPressed();
                 }
             }
         });
@@ -134,5 +178,20 @@ public class AddMemberActivity extends AppCompatActivity {
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private boolean emailFormat(String email) {
+        String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        return email.matches(emailPattern);
+    }
+
+
+    private void showHintAlertDialog(String title, String message) {
+        if (progressDialog.isShowing()) {
+            progressDialog.hide();
+        }
+        hintTitleView.setText(title);
+        hintMessageView.setText(message);
+        hintAlertDialog.show();
     }
 }

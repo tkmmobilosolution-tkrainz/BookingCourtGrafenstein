@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -118,6 +119,9 @@ public class AdminOverviewActivity extends AppCompatActivity {
                     ArrayList<String> listItems = new ArrayList<>(Arrays.asList(listOptions));
                     adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, listItems);
                     adminListView.invalidateViews();
+
+                    String toastString = isCourtClosed == 1 ? "Platz wurde gesperrt" : "Platz wurde freigegeben";
+                    Toast.makeText(AdminOverviewActivity.this, toastString, Toast.LENGTH_LONG).show();
                 }
             }
         });
