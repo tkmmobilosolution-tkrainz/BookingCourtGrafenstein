@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
     private AlertDialog hintAlertDialog;
     private ProgressDialog progressDialog = null;
     private EditText emailET, passwordET;
+    private TextView hintTitleView, hintMessageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,23 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setCancelable(false);
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         progressDialog.setMessage("Anmelden");
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(LoginActivity.this);
+        final View hintAlertView = inflater.inflate(R.layout.hint, null);
+        hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+        hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+        final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+        hintButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hintAlertDialog.dismiss();
+            }
+        });
+
+        dialogHintBuilder.setView(hintAlertView);
+        hintAlertDialog = dialogHintBuilder.create();
 
         authListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -126,7 +144,9 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         } else if (!emailFormat(email)) {
+            showHintAlertDialog("Hinweis", "Die von dir angegebene Email Adresse entspricht nicht dem gewünschten Format.\n\nBeispiel: bookingcourt@beispiel.com");
         } else if (!passwordFormat(password)) {
+            showHintAlertDialog("Hinweis", "Das von dir angegebene Passwort entspricht nicht dem gewünschten Format.\n\nDas Passwort muss mindestens acht Zeichen lang sein.");
         }
     }
 
@@ -201,11 +221,20 @@ public class LoginActivity extends AppCompatActivity {
         FirebaseAuthException exception = (FirebaseAuthException) task.getException();
 
         if (exception.getErrorCode().equals("ERROR_USER_NOT_FOUND")) {
-            // user not able
+            showHintAlertDialog("Fehler", "Es wurde kein Konto zu der von dir gewählten Email Adresse gefunden. Bitte kontaktiere deinen Obmann um mehr dazu zu erfahren.");
         } else if (exception.getErrorCode().equals("ERROR_WRONG_PASSWORD")) {
-            // wrong pwd
+            showHintAlertDialog("Fehler", "Das Passwort für diese Email Adresse ist falsch. Bitte überprüfe deine Eingabe und probier es erneut.");
         } else {
-            // db error
+            showHintAlertDialog("Fehler", "Ein Fehler ist aufgetretten. Versuche es später noch einmal.");
         }
+    }
+
+    private void showHintAlertDialog(String title, String message) {
+        if (progressDialog.isShowing()) {
+            progressDialog.hide();
+        }
+        hintTitleView.setText(title);
+        hintMessageView.setText(message);
+        hintAlertDialog.show();
     }
 }
