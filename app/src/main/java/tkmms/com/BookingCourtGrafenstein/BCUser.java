@@ -1,16 +1,19 @@
 package tkmms.com.BookingCourtGrafenstein;
 
+import java.io.Serializable;
+
 /**
  * Created by tkrainz on 12/05/2017.
  */
 
-public class BCUser {
+public class BCUser implements Serializable {
 
     private long admin = 0;
     private String email = "";
     private String firstname = "";
     private String lastname = "";
     private long payment = 0;
+    private String id = "";
 
     public long getAdmin() {
         return admin;
@@ -50,5 +53,13 @@ public class BCUser {
 
     public void setPayment(long payment) {
         this.payment = payment;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }
