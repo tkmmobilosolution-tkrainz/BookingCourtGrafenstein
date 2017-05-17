@@ -26,12 +26,12 @@ import java.util.TreeMap;
 
 public class DatabaseHelper {
 
-    DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users");
+    DatabaseReference courtRef = FirebaseDatabase.getInstance().getReference().child("basic_permissions").child("isCourtClosed");
 
     public void getUsers(final DatabaseUserListListener listener) {
         final ArrayList<BCUser> users = new ArrayList<>();
-        final DatabaseReference ref = database.child("users");
-        ref.addValueEventListener(new ValueEventListener() {
+        userRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Map<String, BCUser> userMap = (Map<String, BCUser>) dataSnapshot.getValue();
@@ -61,8 +61,8 @@ public class DatabaseHelper {
                     }
 
                     listener.onUsersSucceded(users);
+                    users.clear();
                 }
-                ref.removeEventListener(this);
             }
 
             @Override
@@ -72,9 +72,32 @@ public class DatabaseHelper {
         });
     }
 
+    public void getCourtClosed(final DatabaseCourtClosedListener listener) {
+        courtRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                listener.onCourtClosedSuccedded((long) dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+    }
+
+    public void setCourtClosed(long courtClosed) {
+        courtRef.setValue(courtClosed);
+
+    }
+
     public interface DatabaseUserListListener {
 
         void onUsersSucceded(ArrayList<BCUser> users);
         void onUsersFailed();
+    }
+
+    public interface DatabaseCourtClosedListener {
+        void onCourtClosedSuccedded(long isCourtClosed);
+        void onCourtClosedFailed();
     }
 }

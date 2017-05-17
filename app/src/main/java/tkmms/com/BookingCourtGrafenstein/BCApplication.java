@@ -17,13 +17,24 @@ public class BCApplication extends Application {
 
     private static BCApplication application = null;
 
+    private static long courtClosed = 0;
+
     public BCGlobals getGlobals() {
         initGlobals();
         return globals;
     }
+
     public DatabaseHelper getDatabaseHelper() {
         initDatabaseHelper();
         return dbHelper;
+    }
+
+    public ArrayList<BCUser> getUserList() {
+        return globals.getUsers();
+    }
+
+    public long getCourtClosed() {
+        return courtClosed;
     }
 
     /**
@@ -47,9 +58,33 @@ public class BCApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        application = this;
+
         initGlobals();
         initDatabaseHelper();
-        application = this;
+        dbHelper.getCourtClosed(new DatabaseHelper.DatabaseCourtClosedListener() {
+            @Override
+            public void onCourtClosedSuccedded(long isCourtClosed) {
+                courtClosed = isCourtClosed;
+            }
+
+            @Override
+            public void onCourtClosedFailed() {
+
+            }
+        });
+
+        dbHelper.getUsers(new DatabaseHelper.DatabaseUserListListener() {
+            @Override
+            public void onUsersSucceded(ArrayList<BCUser> users) {
+                globals.setUserList(users);
+            }
+
+            @Override
+            public void onUsersFailed() {
+                globals.setUserList(null);
+            }
+        });
     }
 
     private static void initGlobals() {
@@ -63,6 +98,4 @@ public class BCApplication extends Application {
             dbHelper = new DatabaseHelper();
         }
     }
-
-
 }

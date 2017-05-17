@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
@@ -30,6 +31,9 @@ import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+import java.util.Objects;
 
 /**
  * Created by tkrainz on 08/05/2017.
@@ -119,7 +123,7 @@ public class AddMemberActivity extends AppCompatActivity {
     }
 
     private void createUserFailed(Task<AuthResult> task) {
-        progressDialog.hide();
+        progressDialog.dismiss();
         FirebaseAuthException exception = (FirebaseAuthException) task.getException();
         if (exception.getErrorCode().equals("ERROR_EMAIL_ALREADY_IN_USE")) {
             showHintAlertDialog("Fehler", "Die Email Adresse wird schon verwendet. Bitte gib eine andere Adresse ein.");
@@ -136,11 +140,13 @@ public class AddMemberActivity extends AppCompatActivity {
                     createUserFailed(task);
                 } else {
 
-                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("email").setValue(email);
-                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("firstname").setValue(firstName);
-                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("lastname").setValue(lastName);
-                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("admin").setValue(admin);
-                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("payment").setValue(payment);
+                    HashMap<String, Object> map = new HashMap<String, Object>();
+                    map.put("email", email);
+                    map.put("firstname", firstName);
+                    map.put("lastname", lastName);
+                    map.put("admin", admin);
+                    map.put("payment", payment);
+                    database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(map);
 
                     FirebaseAuth.getInstance().signOut();
 
@@ -151,9 +157,9 @@ public class AddMemberActivity extends AppCompatActivity {
                         }
                     });
 
-                    progressDialog.hide();
                     Toast.makeText(getApplicationContext(), "Mitglied wurde angelegt", Toast.LENGTH_LONG).show();
                     onBackPressed();
+
                 }
             }
         });
@@ -169,7 +175,6 @@ public class AddMemberActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.signout) {
             FirebaseAuth.getInstance().signOut();
-            // TODO: shared prefs bcuser = null
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
             editor.remove("USER");
@@ -189,7 +194,7 @@ public class AddMemberActivity extends AppCompatActivity {
 
     private void showHintAlertDialog(String title, String message) {
         if (progressDialog.isShowing()) {
-            progressDialog.hide();
+            progressDialog.dismiss();
         }
         hintTitleView.setText(title);
         hintMessageView.setText(message);

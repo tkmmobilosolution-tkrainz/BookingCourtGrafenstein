@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (databaseUser != null) {
 
-                    BCGlobals.getInstance().setCurrentUser(databaseUser);
+                    BCApplication.getApplication().getGlobals().setCurrentUser(databaseUser);
 
                     if (databaseUser.getAdmin() == 1) {
                         final Handler handler = new Handler();

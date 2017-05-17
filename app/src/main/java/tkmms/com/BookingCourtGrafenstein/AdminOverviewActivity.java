@@ -1,8 +1,10 @@
 package tkmms.com.BookingCourtGrafenstein;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
@@ -40,37 +42,25 @@ public class AdminOverviewActivity extends AppCompatActivity {
     ArrayAdapter<String> adapter;
     private String[] listOptions = new String[4];
     long isCourtClosed;
+    private ProgressDialog progressDialog = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_overview);
+    }
 
-        database = FirebaseDatabase.getInstance().getReference().child("isCourtClosed");
-        database.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+    @Override
+    protected void onResume() {
+        super.onResume();
 
-                listOptions[0] = "Mitglied anlegen";
-                listOptions[1] = "Mitglieder verwalten";
+        progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progressDialog.setMessage("Lade Daten");
+        progressDialog.show();
 
-                isCourtClosed = (long) dataSnapshot.getValue();
-                if (isCourtClosed == 1) {
-                    listOptions[2] = "Platz freigeben";
-                } else {
-                    listOptions[2] = "Platz sperren";
-                }
-
-                listOptions[3] = "Training hinzufügen";
-
-                setListWithArray();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
+        loadParametters();
     }
 
     @Override
@@ -83,7 +73,6 @@ public class AdminOverviewActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.signout) {
             FirebaseAuth.getInstance().signOut();
-            // TODO: shared prefs bcuser = null
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
             editor.remove("USER");
@@ -104,7 +93,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
         final ListView adminListView = (ListView) findViewById(R.id.listview_admin);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
         adminListView.setAdapter(adapter);
-
+        progressDialog.dismiss();
         adminListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -117,15 +106,18 @@ public class AdminOverviewActivity extends AppCompatActivity {
                 } else if (position == 2) {
 
                     isCourtClosed = isCourtClosed == 1 ? 0 : 1;
-                    FirebaseDatabase.getInstance().getReference().child("basic_permission").child("isCourtClosed").setValue(isCourtClosed);
-                    if (isCourtClosed == 1) {
-                        listOptions[2] = "Platz freigeben";
-                    } else {
-                        listOptions[2] = "Platz sperren";
-                    }
-                    ArrayList<String> listItems = new ArrayList<>(Arrays.asList(listOptions));
-                    adapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_list_item_1, listItems);
-                    adminListView.invalidateViews();
+                    BCApplication.getApplication().getDatabaseHelper().setCourtClosed(isCourtClosed);
+
+                    progressDialog.show();
+
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            loadParametters();
+                        }
+                    }, 1000);
 
                     String toastString = isCourtClosed == 1 ? "Platz wurde gesperrt" : "Platz wurde freigegeben";
                     Toast.makeText(AdminOverviewActivity.this, toastString, Toast.LENGTH_LONG).show();
@@ -135,5 +127,21 @@ public class AdminOverviewActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void loadParametters() {
+        listOptions[0] = "Mitglied anlegen";
+        listOptions[1] = "Mitglieder verwalten";
+
+        isCourtClosed = BCApplication.getApplication().getCourtClosed();
+        if (isCourtClosed == 1) {
+            listOptions[2] = "Platz freigeben";
+        } else {
+            listOptions[2] = "Platz sperren";
+        }
+
+        listOptions[3] = "Training hinzufügen";
+
+        setListWithArray();
     }
 }

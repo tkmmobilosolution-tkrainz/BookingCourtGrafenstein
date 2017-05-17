@@ -3,6 +3,7 @@
     package="tkmms.com.BookingCourtGrafenstein">
 
     <application
+        android:name=".BCApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"

@@ -49,30 +49,20 @@ public class MemberOverviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_member_overview);
-
-        progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
-        progressDialog.setCancelable(false);
-        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
-        progressDialog.setMessage("Daten werden geladen");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
+        progressDialog.setMessage("Daten werden geladen");
         progressDialog.show();
 
-        BCApplication.getApplication().getDatabaseHelper().getUsers(new DatabaseHelper.DatabaseUserListListener() {
-            @Override
-            public void onUsersSucceded(ArrayList<BCUser> users) {
-                usersList = users;
-                showMemberList();
-            }
-
-            @Override
-            public void onUsersFailed() {
-                showHint();
-            }
-        });
+        usersList = BCApplication.getApplication().getUserList();
+        showMemberList();
     }
 
     @Override
@@ -108,7 +98,6 @@ public class MemberOverviewActivity extends AppCompatActivity {
     }
 
     private void showMemberList() {
-        progressDialog.hide();
 
         if (usersList != null) {
             Collections.sort(usersList, new CustomComparator());
@@ -120,6 +109,7 @@ public class MemberOverviewActivity extends AppCompatActivity {
             ListView adminListView = (ListView) findViewById(R.id.listView_member);
             MemberListAdapter adapter = new MemberListAdapter(this, usersList);
             adminListView.setAdapter(adapter);
+            progressDialog.hide();
 
             adminListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
