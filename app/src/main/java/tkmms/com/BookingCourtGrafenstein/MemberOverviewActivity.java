@@ -40,51 +40,10 @@ import java.util.TreeMap;
 
 public class MemberOverviewActivity extends AppCompatActivity {
 
-    private String[] listOptions = new String[] {"Mitglied Eins", "Mitglied zwei", "Mitglied drei"};
     ArrayList<String> listItems = new ArrayList<String>();
-    ArrayList<BCUser> users = new ArrayList<BCUser>();
+    ArrayList<BCUser> usersList = new ArrayList<BCUser>();
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users");
     private ProgressDialog progressDialog = null;
-
-    ValueEventListener eventListener = new ValueEventListener() {
-        @Override
-        public void onDataChange(DataSnapshot dataSnapshot) {
-            Map<String, BCUser> userMap = (Map<String, BCUser>) dataSnapshot.getValue();
-            if (userMap != null) {
-
-                TreeMap<String, BCUser> treemap = new TreeMap<String, BCUser>(userMap);
-
-                Iterator basicIterator = treemap.entrySet().iterator();
-                while (basicIterator.hasNext()) {
-                    Map.Entry pair = (Map.Entry) basicIterator.next();
-
-                    HashMap<String, String> userDetaiMap = (HashMap<String, String>) pair.getValue();
-                    String admin = String.valueOf(userDetaiMap.get("admin"));
-                    String payment = String.valueOf(userDetaiMap.get("payment"));
-
-                    BCUser currentUser = new BCUser();
-                    currentUser.setLastname(userDetaiMap.get("lastname"));
-                    currentUser.setAdmin(Long.parseLong(admin));
-                    currentUser.setFirstname(userDetaiMap.get("firstname"));
-                    currentUser.setEmail(userDetaiMap.get("email"));
-                    currentUser.setPayment(Long.parseLong(payment));
-                    currentUser.setId((String) pair.getKey());
-
-                    if (currentUser.getAdmin() != 1) {
-                        users.add(currentUser);
-                    }
-                }
-            } else {
-                users = null;
-            }
-
-            showMemberList();
-        }
-
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-        }
-    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +60,19 @@ public class MemberOverviewActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressDialog.show();
-        database.addValueEventListener(eventListener);
+
+        BCApplication.getApplication().getDatabaseHelper().getUsers(new DatabaseHelper.DatabaseUserListListener() {
+            @Override
+            public void onUsersSucceded(ArrayList<BCUser> users) {
+                usersList = users;
+                showMemberList();
+            }
+
+            @Override
+            public void onUsersFailed() {
+                showHint();
+            }
+        });
     }
 
     @Override
@@ -112,7 +83,6 @@ public class MemberOverviewActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
-        database.removeEventListener(eventListener);
     }
 
     @Override
@@ -140,21 +110,21 @@ public class MemberOverviewActivity extends AppCompatActivity {
     private void showMemberList() {
         progressDialog.hide();
 
-        if (users != null) {
-            Collections.sort(users, new CustomComparator());
+        if (usersList != null) {
+            Collections.sort(usersList, new CustomComparator());
 
-            for (BCUser currentUser: users) {
+            for (BCUser currentUser: usersList) {
                 listItems.add(currentUser.getLastname() + ", " + currentUser.getFirstname());
             }
 
             ListView adminListView = (ListView) findViewById(R.id.listView_member);
-            MemberListAdapter adapter = new MemberListAdapter(this, users);
+            MemberListAdapter adapter = new MemberListAdapter(this, usersList);
             adminListView.setAdapter(adapter);
 
             adminListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    BCUser clickedUser = users.get(position);
+                    BCUser clickedUser = usersList.get(position);
 
                     Intent intent = new Intent(getApplicationContext(), MemberDetailActivity.class);
                     intent.putExtra("user", clickedUser);
@@ -190,4 +160,6 @@ public class MemberOverviewActivity extends AppCompatActivity {
 
         hintAlertDialog.show();
     }
+
+
 }

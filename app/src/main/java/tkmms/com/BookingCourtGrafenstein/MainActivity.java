@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkForUserState() {
-        final Gson gson = new Gson();
         final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -72,11 +71,7 @@ public class MainActivity extends AppCompatActivity {
 
                 if (databaseUser != null) {
 
-                    String dbUserJson = gson.toJson(databaseUser);
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("USER", dbUserJson);
-                    editor.apply();
+                    BCGlobals.getInstance().setCurrentUser(databaseUser);
 
                     if (databaseUser.getAdmin() == 1) {
                         final Handler handler = new Handler();

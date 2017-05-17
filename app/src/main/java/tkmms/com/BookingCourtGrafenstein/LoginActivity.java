@@ -83,7 +83,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
-                checkUserState(user);
+                if (user != null) {
+                    handleDatabaseUser(user);
+                }
             }
         };
 
@@ -150,21 +152,8 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void checkUserState(FirebaseUser user) {
-        if (user != null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            final String localUser = prefs.getString("USER", null);
-
-            if (localUser == null || localUser.equals("")) {
-                handleDatabaseUser(user);
-            } else {
-                setLocalUser(localUser);
-            }
-        }
-    }
-
     private void handleDatabaseUser(FirebaseUser user) {
-        final Gson gson = new Gson();
+
         final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
         database.addValueEventListener(new ValueEventListener() {
             @Override
@@ -172,12 +161,7 @@ public class LoginActivity extends AppCompatActivity {
                 BCUser databaseUser = dataSnapshot.getValue(BCUser.class);
 
                 if (databaseUser != null) {
-
-                    String dbUserJson = gson.toJson(databaseUser);
-                    SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    SharedPreferences.Editor editor = prefs.edit();
-                    editor.putString("USER", dbUserJson);
-                    editor.apply();
+                    BCGlobals.getInstance().setCurrentUser(databaseUser);
 
                     if (databaseUser.getAdmin() == 1) {
                         Intent intent = new Intent(getApplicationContext(), AdminOverviewActivity.class);
@@ -201,20 +185,6 @@ public class LoginActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
-    }
-
-    private void setLocalUser(String userJson) {
-        final Gson gson = new Gson();
-        BCUser savedUser = gson.fromJson(userJson, BCUser.class);
-
-        if (savedUser == null) {
-            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putString("USER", userJson);
-            editor.apply();
-        }
-
-        progressDialog.hide();
     }
 
     private void signInFailed(Task<AuthResult> task) {

@@ -47,6 +47,9 @@
         <activity android:name=".ChooseCloseActivity">
         </activity>
 
+        <activity android:name=".AddTrainingActivity">
+        </activity>
+
     </application>
 
 </manifest>

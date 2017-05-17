@@ -23,8 +23,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 
 /**
  * Created by tkrainz on 08/05/2017.
@@ -34,7 +38,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
 
     DatabaseReference database;
     ArrayAdapter<String> adapter;
-    private String[] listOptions = new String[3];
+    private String[] listOptions = new String[4];
     long isCourtClosed;
 
     @Override
@@ -56,6 +60,8 @@ public class AdminOverviewActivity extends AppCompatActivity {
                 } else {
                     listOptions[2] = "Platz sperren";
                 }
+
+                listOptions[3] = "Training hinzufügen";
 
                 setListWithArray();
             }
@@ -111,7 +117,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
                 } else if (position == 2) {
 
                     isCourtClosed = isCourtClosed == 1 ? 0 : 1;
-                    FirebaseDatabase.getInstance().getReference().child("isCourtClosed").setValue(isCourtClosed);
+                    FirebaseDatabase.getInstance().getReference().child("basic_permission").child("isCourtClosed").setValue(isCourtClosed);
                     if (isCourtClosed == 1) {
                         listOptions[2] = "Platz freigeben";
                     } else {
@@ -123,6 +129,9 @@ public class AdminOverviewActivity extends AppCompatActivity {
 
                     String toastString = isCourtClosed == 1 ? "Platz wurde gesperrt" : "Platz wurde freigegeben";
                     Toast.makeText(AdminOverviewActivity.this, toastString, Toast.LENGTH_LONG).show();
+                } else if (position == 3) {
+                    Intent intent = new Intent(getApplicationContext(), AddTrainingActivity.class);
+                    startActivity(intent);
                 }
             }
         });
