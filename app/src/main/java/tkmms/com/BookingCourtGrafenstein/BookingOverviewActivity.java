@@ -51,7 +51,8 @@ public class BookingOverviewActivity extends AppCompatActivity {
         addTrainingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: Intent to ChooseBookingActivity
+                Intent intent = new Intent(BookingOverviewActivity.this, ChooseBookingActivity.class);
+                startActivity(intent);
             }
         });
 

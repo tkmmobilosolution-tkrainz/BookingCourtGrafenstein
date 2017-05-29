@@ -1,6 +1,5 @@
 package tkmms.com.BookingCourtGrafenstein;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.support.v4.content.ContextCompat;
@@ -61,7 +60,7 @@ public class BookingListAdapter extends BaseAdapter {
         final BCBooking currentBooking = bookings.get(position);
 
         String weekDay = null;
-        switch((int) currentBooking.getWeekday()) {
+        switch ((int) currentBooking.getWeekday()) {
             case 1:
                 weekDay = "Sonntag";
                 break;
@@ -86,7 +85,15 @@ public class BookingListAdapter extends BaseAdapter {
         }
 
         String bookingTime = currentBooking.getBeginTime() + " - " + currentBooking.getEndTime();
-        String bookingDate = currentBooking.getBeginDate() + " - " + currentBooking.getEndDate();
+
+        String bookingDate = "";
+
+        if (currentBooking.getBeginDate().equals(currentBooking.getEndDate())) {
+            bookingDate = currentBooking.getBeginDate();
+        } else {
+            bookingDate = currentBooking.getBeginDate() + " - " + currentBooking.getEndDate();
+        }
+
         String bookingCourt = "Platz " + currentBooking.getCourt();
 
         nameTextView.setText(currentBooking.getName());
@@ -115,7 +122,7 @@ public class BookingListAdapter extends BaseAdapter {
             public void onClick(View v) {
                 FirebaseDatabase.getInstance().getReference().child("bookings").child(ids.get(position)).child("active").setValue(isActive == 0 ? 1 : 0);
 
-                for (int i = 0; i < currentBooking.getReservationIds().size(); i ++) {
+                for (int i = 0; i < currentBooking.getReservationIds().size(); i++) {
                     FirebaseDatabase.getInstance().getReference().child("reservations").child(currentBooking.getReservationIds().get(i)).child("active").setValue(isActive == 0 ? 1 : 0);
                 }
 

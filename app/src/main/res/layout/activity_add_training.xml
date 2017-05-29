@@ -12,7 +12,7 @@
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
         android:layout_marginTop="15dp"
-        android:text="Hier kannst du Termine die sich wöchentlich wiederholen festlegen."
+        android:text="Hier kannst du eine Einheit festlegen, die sich wöchentlich wiederholt."
         android:textAlignment="center" />
 
     <TextView
@@ -175,6 +175,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:text="Training hinzufügen"
+        android:text="Einheit hinzufügen"
         android:theme="@style/BCButtonNormal" />
 </LinearLayout>

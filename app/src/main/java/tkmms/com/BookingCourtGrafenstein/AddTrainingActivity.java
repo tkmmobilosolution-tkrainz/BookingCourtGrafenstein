@@ -416,7 +416,9 @@ public class AddTrainingActivity extends AppCompatActivity {
             public void run() {
                 progressDialog.dismiss();
                 Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
-                onBackPressed();
+
+                Intent intent = new Intent(AddTrainingActivity.this, BookingOverviewActivity.class);
+                startActivity(intent);
             }
         }, 1000);
     }

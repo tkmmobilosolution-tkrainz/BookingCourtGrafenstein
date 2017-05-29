@@ -56,6 +56,10 @@
 
         <activity android:name=".BookingReservationActivity">
         </activity>
+        
+        <activity android:name=".AddSingleEventActivity"></activity>
+        
+        <activity android:name=".ChooseBookingActivity"></activity>
 
     </application>
 
