@@ -10,10 +10,12 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -27,6 +29,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.UUID;
 
 /**
@@ -38,6 +41,8 @@ public class AddTrainingActivity extends AppCompatActivity {
     private Spinner weekdaySpinner;
     private Spinner courtSpinner;
 
+    private EditText trainingName;
+
     private Button addTrainingButton;
     private Button beginDateButton;
     private Button endDateButton;
@@ -47,6 +52,7 @@ public class AddTrainingActivity extends AppCompatActivity {
     private int weekdayInt;
     private int court;
 
+    private String name;
     private String beginDateString;
     private String endDateString;
     private String beginTimeString;
@@ -74,6 +80,9 @@ public class AddTrainingActivity extends AppCompatActivity {
 
         initWeekdaySpinner();
         initCourtSpinner();
+
+        trainingName = (EditText) findViewById(R.id.et_training_name);
+        trainingName.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         beginDateButton = (Button) findViewById(R.id.btn_choose_begin_date);
         beginDateButton.setText(START_DATUM_BUTTON_TITLE);
@@ -352,33 +361,64 @@ public class AddTrainingActivity extends AppCompatActivity {
         }
 
         for (int res = 0; res < dateArray.size(); res++) {
-            BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, dateArray.get(res), court);
+            BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, dateArray.get(res), court, 1, name);
             reservationList.add(reservation);
         }
     }
 
     private void sendReservationsToFirebase() {
 
+        final ArrayList<String> reservationUuids = new ArrayList<>();
+
         for (int i = 0; i < reservationList.size(); i++) {
-            String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-AAAA-" + UUID.randomUUID().toString();
+            String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
+            reservationUuids.add(reservationsUuid);
 
             FirebaseDatabase.getInstance().getReference()
                     .child("reservations")
                     .child(reservationsUuid)
                     .setValue(reservationList.get(i).getHashMap());
-
-            final Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    progressDialog.dismiss();
-                    Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
-                    onBackPressed();
-                }
-            }, 1500);
-
         }
 
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                sendBooking(reservationUuids);
+            }
+        }, 500);
+
+    }
+
+    private void sendBooking(ArrayList<String> reservationList) {
+
+        String bookingUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-BOOK-" + UUID.randomUUID().toString();
+
+        HashMap<String, Object> bookingMap = new HashMap<>();
+        bookingMap.put("weekday", weekdayInt);
+        bookingMap.put("beginDate", beginDateString);
+        bookingMap.put("endDate", endDateString);
+        bookingMap.put("beginTime", beginTimeString);
+        bookingMap.put("endTime", endTimeString);
+        bookingMap.put("court", court);
+        bookingMap.put("reservationIds", reservationList);
+        bookingMap.put("name", name);
+        bookingMap.put("active", 1);
+
+        FirebaseDatabase.getInstance().getReference()
+                .child("bookings")
+                .child(bookingUuid)
+                .setValue(bookingMap);
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressDialog.dismiss();
+                Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
+                onBackPressed();
+            }
+        }, 1000);
     }
 
     private ArrayList<String> generateTimes(String time, boolean beginTime) {
@@ -420,8 +460,14 @@ public class AddTrainingActivity extends AppCompatActivity {
         String dateButtonTitle = endDateButton.getText().toString();
         String beginTimeButtonTitle = beginTimeButton.getText().toString();
         String endTimeButtonTitle = endTimeButton.getText().toString();
+        name = trainingName.getText().toString();
 
-        if (beginDateButtonTitle == START_DATUM_BUTTON_TITLE) {
+        // TODO: check booking names, if == name -> error "names equal, please rename"
+        if (name == "Training") {
+            initHintAlert("Bitte gib der Einheit einen Namen!");
+            hintAlertDialog.show();
+            return false;
+        } else if (beginDateButtonTitle == START_DATUM_BUTTON_TITLE) {
             initHintAlert("Bitte wähle ein Start Datum aus!");
             hintAlertDialog.show();
             return false;

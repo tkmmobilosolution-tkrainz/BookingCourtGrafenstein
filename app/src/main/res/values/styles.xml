@@ -13,6 +13,7 @@
     </style>
 
     <style name="BCButtonRed" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@android:color/white</item>
         <item name="colorButtonNormal">@android:color/holo_red_dark</item>
     </style>
 

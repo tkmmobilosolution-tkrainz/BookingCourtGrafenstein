@@ -8,12 +8,32 @@
         android:id="@+id/textView16"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="25dp"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:layout_marginTop="25dp"
-        android:text="Hier kannst du Termine die sich wöchentlich wiederholen festleegn."
+        android:layout_marginTop="15dp"
+        android:text="Hier kannst du Termine die sich wöchentlich wiederholen festlegen."
         android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="Name der Einheit" />
+
+    <EditText
+        android:id="@+id/et_training_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:layout_marginLeft="7dp"
+        android:layout_marginRight="7dp"
+        android:text="Training"
+        android:ems="10"
+        android:inputType="textPersonName"/>
 
     <TextView
         android:id="@+id/textView17"
@@ -155,6 +175,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="7dp"
         android:layout_marginRight="7dp"
-        android:text="Button"
+        android:text="Training hinzufügen"
         android:theme="@style/BCButtonNormal" />
 </LinearLayout>

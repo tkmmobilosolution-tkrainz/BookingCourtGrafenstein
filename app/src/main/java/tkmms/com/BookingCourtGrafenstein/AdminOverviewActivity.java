@@ -122,7 +122,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
                     String toastString = isCourtClosed == 1 ? "Platz wurde gesperrt" : "Platz wurde freigegeben";
                     Toast.makeText(AdminOverviewActivity.this, toastString, Toast.LENGTH_LONG).show();
                 } else if (position == 3) {
-                    Intent intent = new Intent(getApplicationContext(), AddTrainingActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), BookingOverviewActivity.class);
                     startActivity(intent);
                 }
             }
@@ -140,7 +140,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
             listOptions[2] = "Platz sperren";
         }
 
-        listOptions[3] = "Training hinzufügen";
+        listOptions[3] = "Einheiten";
 
         setListWithArray();
     }

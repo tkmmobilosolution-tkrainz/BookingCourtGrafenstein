@@ -2,13 +2,274 @@
 <items version="2" >
 
     <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/1269584d742d38223063914bb39314bc6b3764f1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_0194534a25ae640c8dbdc234b45c8faf729ccd82.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/1d33b94c2a0e3361c000e69362ec6865d8e59ea9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="486371f97baad8e607f332f20fee1d3dd00a731a">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_9c47252f30cec942996378c258e7ee443e99d2da.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/063be2f9f97666773b3ec24e71a52cb43f591db3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b955cb3a1ad6f1b6ff728ce1e0cd592c1717b440">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_de849c224a21db1de09c2a1dade6f69394d5a2ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.0-beta4/739e00dea1f0ac04fdb9b6160d667e23cc50a791/retrofit-2.0.0-beta4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="739e00dea1f0ac04fdb9b6160d667e23cc50a791">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/retrofit-2.0.0-beta4_afecc72594dfed0cea23ff515292e0234cbfee84.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.0-beta4/de5935a367ba5e343e9df786ac8fc0c7d52b5f0c/converter-gson-2.0.0-beta4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de5935a367ba5e343e9df786ac8fc0c7d52b5f0c">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/converter-gson-2.0.0-beta4_0341d151b7d0477b664e23f03b77fee421667840.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/db52f7c20e5c798a05b2fd3236ef4dddc1420b22/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_9b674b022bbdab68475693327288ad714dbcaf50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/26a28bf238d02406c8554e08cae15747d605a4da/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d0460bf07cc3657e0be518ca01c174493951c6b8">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_4b588ceff59e739722e1be5a842960656e1ab701.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/support-annotations-25.3.1_c8524b96cc3ee580bc6060fb9b8c989edae180de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/e264427e3f82c04e1ab9514eae259caadb19eb71/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6addaba208e21c6da776d0ca75b6b23a6ccd5499">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_e33f962cbbfceb8d0791311ad86f05d26b356837.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/5490e44ea17d46641b4369be4e8529865f2b44c8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_a79287a37ffe7c82ab7619aaa81701a21af7d2a1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/125ab27d16da3dc0479aa26b4cd5dbad97702a49/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_138cb8da642864836367bbf3993ab0e790278d9e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/a95cf06e19c9fcb459867bfecb4f5248e7220232/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="eb0d830e3eabb9deb9ec44869cf7ac7ea1ad794c">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_95da4878b40ad0bdf46580baf6dbb3c4296464ba.jar" />
+    </item>
+    <item
         is-multidex="true"
         jar="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d328b602ca46f3d33fc37e771cac941f72059b50">
+        sha1="ffb0e75e25702bd4e92d91222c09af1a167262c9">
         <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d85a2edb9f604a78e7e01ccc56a59f9c857b5a14/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/071804550d84805e1692216c112f382a6ed89561/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_7ed702c248b51f4ecb829b446e8478b5fd5b950c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/Library/Android/sdk/extras/m2repository/com/android/support/constraint/constraint-layout-solver/1.0.2/constraint-layout-solver-1.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/constraint-layout-solver-1.0.2_df512f96109d2993f58fb07dd7c8b00a58318e41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/1cdf1fbfd849e7348aeb9a760aedf755030b14d9/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1d193729baf37df3d902a423291423a0df7e3779">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_3b22acabaed68df3e776c07587e6336bc79cd371.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/b7bf11a3f78ffcda84f7869a2411f948f2c0e615/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8f128aeeb7e31271b28a7adb9dac1f3a6ed9f5e7">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_16711b92ea9cdac1140e1966619ffd78ceeff1c4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/f3aa5d058c6f5a025fd80ce061663245b1c6e9fc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_72548ab851becf67aaed7e6135efd0a0f9bba75e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/322775a4ecc1b0a94adf68ab99698bae14828f5b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6116e0e7069de7fc259aac8e08b84f32c2038231">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_eb3bfdbd23c6826106dc807999f1bc45ee9d69f3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/d7e225b2fd9d74f9af921c6c056c5749ffd0bf9f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_925ecdc61a9dfd2dda6157c166f1447fddac4102.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/ea5f3cab82aa0adb526d4d471af84bf7948aeecd/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_6774d84b264e297b57ad6983625f4bc8e1e4f6a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/8ef0a4849a439e737babda3aea7d182d98947c75/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="57c2eceb8548de84509d1ebc293fedec53231f6c">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_83370b0436db5cccb7d13d639f8ef12d04bbebeb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/75e75cae213e162ea12de699bf1ed6809d92b23e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_eef80c15448c4a71b6a558082d0ce85c5c6a6d43.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/83d2401f8f93889d8d478462d46f48ccd8a547db/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9cca2818594cc5348806d6662133491e7ea0fa8d">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_50c7995f1f9e4fd72843bc29d3c95cc9915bb591.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.4/695b63d702f505b9b916e02272e3b6381bade7f/gson-2.4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/gson-2.4_00d80fd92146348ea568d7804c4c74ec80bb5aa6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/3def672b862b2f19e2483eef4cae7d4094c7c19a/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="433f4d6aa5f21f19552afe0e6c5eff0fedba73ad">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_68ed429893f86707dce7bc0970c65935b1ee21e2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/b45b53451a44ff8496e3acd9c429c356c43839f0/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8010ae6ed32828a145b25ec97bc07b7a83c6318f">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_169fb5cab0f1d3710caddc88d862672f034f698c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/2ed9f740c6aaede6c03ff008afb18f9d11b15961/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_9cc2938c2558c49096a89e981f47ea2543d1684a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/437014e04b9e18ac01b19d6beb6bae828123a56f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="25438f55fc6d906a0e72f30b21487541430ede43">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_cd97e8759eb2c9a6f417a8a099659e83221647b9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.android/build-cache/5507f4a8103b35e8c760f1e0a8c6c304fde5ec45/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="756f6297eef79784f5e356dcd4f39865028b2bd0">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/classes_788d6fec0ac7a8240391ce44aca7a1fea14f6f24.jar" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +279,15 @@
         revision="25.0.2"
         sha1="510aa6efc159983dfbffa676a0dae37568c0a46f">
         <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_92621c763e001ff37f7572ac8e56c29bd3ee6980/classes.dex" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/tkrainz/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.0.1/b34c1f2d993044656e87f88970b6818e99e886ba/okhttp-3.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b34c1f2d993044656e87f88970b6818e99e886ba">
+        <dex dex="/Users/tkrainz/BookingCourtGrafenstein/app/build/intermediates/pre-dexed/debug/okhttp-3.0.1_a1f29779524d00ea202a169e3781a7780498220e.jar" />
     </item>
 
 </items>

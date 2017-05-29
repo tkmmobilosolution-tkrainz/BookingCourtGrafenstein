@@ -51,6 +51,12 @@
         <activity android:name=".AddTrainingActivity">
         </activity>
 
+        <activity android:name=".BookingOverviewActivity">
+        </activity>
+
+        <activity android:name=".BookingReservationActivity">
+        </activity>
+
     </application>
 
 </manifest>

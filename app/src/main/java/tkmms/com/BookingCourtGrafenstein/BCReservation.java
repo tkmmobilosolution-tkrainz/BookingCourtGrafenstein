@@ -16,15 +16,53 @@ public class BCReservation {
 
     private String date = null;
 
-    private int court = 0;
+    private long court = 0;
 
-    public BCReservation(String userUuid, String beginTime, String endTime, String date, int court) {
+    private long isActive = 0;
+
+    private String name = null;
+
+    public BCReservation() {
+
+    }
+
+    public BCReservation(String userUuid, String beginTime, String endTime, String date, long court, long isActive, String name) {
 
         this.userUuid = userUuid;
         this.beginTime  = beginTime;
         this.endTime = endTime;
         this.date = date;
         this.court = court;
+        this.isActive = isActive;
+        this.name = name;
+    }
+
+    public void setUserUuid(String userUuid) {
+        this.userUuid = userUuid;
+    }
+
+    public void setBeginTime(String beginTime) {
+        this.beginTime = beginTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setCourt(long court) {
+        this.court = court;
+    }
+
+    public void setActive(long active) {
+        isActive = active;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUserUuid() {
@@ -43,9 +81,11 @@ public class BCReservation {
         return date;
     }
 
-    public int getCourt() {
+    public long getCourt() {
         return court;
     }
+
+    public long getIsActive() { return isActive; }
 
     public HashMap<String, Object> getHashMap() {
         HashMap<String, Object> map = new HashMap<>();
@@ -54,7 +94,8 @@ public class BCReservation {
         map.put("endTime", endTime);
         map.put("date", date);
         map.put("court", court);
-
+        map.put("name", name);
+        map.put("active", isActive);
         return map;
     }
 }
