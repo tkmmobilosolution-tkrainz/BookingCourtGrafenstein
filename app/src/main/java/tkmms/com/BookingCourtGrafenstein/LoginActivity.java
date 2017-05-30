@@ -110,6 +110,25 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (authListener != null) {
+            authentication.removeAuthStateListener(authListener);
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        if (authListener != null) {
+            authentication.removeAuthStateListener(authListener);
+        }
+    }
+
+
+    @Override
     protected void onResume() {
         super.onResume();
         if (progressDialog.isShowing()) {
@@ -185,6 +204,10 @@ public class LoginActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+
+        if (authListener != null) {
+            authentication.removeAuthStateListener(authListener);
+        }
     }
 
     private void signInFailed(Task<AuthResult> task) {
