@@ -46,18 +46,20 @@ public class BookCourtActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 HashMap<String, HashMap<String, Object>> reservationsMap = (HashMap<String, HashMap<String, Object>>) dataSnapshot.getValue();
 
-                for (Map.Entry<String, HashMap<String, Object>> entry : reservationsMap.entrySet()) {
+                if (reservationsMap != null) {
+                    for (Map.Entry<String, HashMap<String, Object>> entry : reservationsMap.entrySet()) {
 
-                    HashMap<String, Object> reservationMap = entry.getValue();
-                    BCReservation reservation = new BCReservation();
-                    reservation.setActive((long)reservationMap.get("active"));
-                    reservation.setDate((String)reservationMap.get("date"));
-                    reservation.setName((String)reservationMap.get("name"));
-                    reservation.setBeginTime((String)reservationMap.get("beginTime"));
-                    reservation.setEndTime((String)reservationMap.get("endTime"));
-                    reservation.setUserUuid((String)reservationMap.get("userUuid"));
-                    reservation.setCourt((long)reservationMap.get("court"));
-                    reservationList.add(reservation);
+                        HashMap<String, Object> reservationMap = entry.getValue();
+                        BCReservation reservation = new BCReservation();
+                        reservation.setActive((long)reservationMap.get("active"));
+                        reservation.setDate((String)reservationMap.get("date"));
+                        reservation.setName((String)reservationMap.get("name"));
+                        reservation.setBeginTime((String)reservationMap.get("beginTime"));
+                        reservation.setEndTime((String)reservationMap.get("endTime"));
+                        reservation.setUserUuid((String)reservationMap.get("userUuid"));
+                        reservation.setCourt((long)reservationMap.get("court"));
+                        reservationList.add(reservation);
+                    }
                 }
 
                 FirebaseDatabase.getInstance().getReference().child("basic_permissions").addListenerForSingleValueEvent(new ValueEventListener() {

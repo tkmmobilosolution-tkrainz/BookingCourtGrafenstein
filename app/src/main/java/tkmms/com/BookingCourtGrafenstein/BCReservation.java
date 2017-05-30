@@ -65,6 +65,10 @@ public class BCReservation {
         this.name = name;
     }
 
+    public String getName() {
+        return name;
+    }
+
     public String getUserUuid() {
         return userUuid;
     }

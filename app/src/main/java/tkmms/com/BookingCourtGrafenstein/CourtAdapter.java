@@ -1,22 +1,14 @@
 package tkmms.com.BookingCourtGrafenstein;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by tkrainz on 03/05/2017.
@@ -33,6 +25,10 @@ public class CourtAdapter extends BaseAdapter {
     ArrayList<String> fromTimes;
     ArrayList<String> toTimes;
 
+    ArrayList<Object> reservationsCourt1 = new ArrayList<>();
+    ArrayList<Object> reservationsCourt2 = new ArrayList<>();
+    ArrayList<Object> reservationsCourt3 = new ArrayList<>();
+
     public CourtAdapter(ArrayList<BCReservation> reservationList, int numberOfCourts, String open, String close, double duration) {
         this.reservationList = reservationList;
         this.numberOfCourts = numberOfCourts;
@@ -40,8 +36,17 @@ public class CourtAdapter extends BaseAdapter {
         this.close = close;
         this.duration = duration;
 
+        for (int i = 0; i < 30; i++) {
+
+            reservationsCourt1.add("Frei");
+            reservationsCourt2.add("Frei");
+            reservationsCourt3.add("Frei");
+        }
+
         fromTimes = generateFromTimes();
         toTimes = generateToTimes();
+
+        getReservations();
     }
 
     @Override
@@ -78,16 +83,16 @@ public class CourtAdapter extends BaseAdapter {
         TextView timeView = (TextView) convertView.findViewById(R.id.tvTime);
         timeView.setText(fromTimes.get(position) + " - " + toTimes.get(position));
 
-        BCButton court1 = (BCButton)convertView.findViewById(R.id.btnCourt1);
-        BCButton court2 = (BCButton)convertView.findViewById(R.id.btnCourt2);
-        BCButton court3 = (BCButton)convertView.findViewById(R.id.btnCourt3);
-        BCButton court4 = (BCButton)convertView.findViewById(R.id.btnCourt4);
-        BCButton court5 = (BCButton)convertView.findViewById(R.id.btnCourt5);
-        BCButton court6 = (BCButton)convertView.findViewById(R.id.btnCourt6);
-        BCButton court7 = (BCButton)convertView.findViewById(R.id.btnCourt7);
-        BCButton court8 = (BCButton)convertView.findViewById(R.id.btnCourt8);
-        BCButton court9 = (BCButton)convertView.findViewById(R.id.btnCourt9);
-        BCButton court10 = (BCButton)convertView.findViewById(R.id.btnCourt10);
+        BCButton court1 = (BCButton) convertView.findViewById(R.id.btnCourt1);
+        BCButton court2 = (BCButton) convertView.findViewById(R.id.btnCourt2);
+        BCButton court3 = (BCButton) convertView.findViewById(R.id.btnCourt3);
+        BCButton court4 = (BCButton) convertView.findViewById(R.id.btnCourt4);
+        BCButton court5 = (BCButton) convertView.findViewById(R.id.btnCourt5);
+        BCButton court6 = (BCButton) convertView.findViewById(R.id.btnCourt6);
+        BCButton court7 = (BCButton) convertView.findViewById(R.id.btnCourt7);
+        BCButton court8 = (BCButton) convertView.findViewById(R.id.btnCourt8);
+        BCButton court9 = (BCButton) convertView.findViewById(R.id.btnCourt9);
+        BCButton court10 = (BCButton) convertView.findViewById(R.id.btnCourt10);
 
         court1.setVisibility(View.GONE);
         court2.setVisibility(View.GONE);
@@ -188,12 +193,97 @@ public class CourtAdapter extends BaseAdapter {
                 break;
         }
 
-        court1.setButtonBackgroundForState("Frei");
-        court2.setButtonBackgroundForState("Besetzt");
-        court3.setButtonBackgroundForState("Training");
-        court4.setButtonBackgroundForState("Test");
+        if (reservationsCourt1.get(position) instanceof BCReservation) {
+            BCReservation res = (BCReservation) reservationsCourt1.get(position);
+            court1.setText(res.getName());
+        } else {
+            court1.setText((String) reservationsCourt1.get(position));
+        }
+
+        if (reservationsCourt2.get(position) instanceof BCReservation) {
+            BCReservation res = (BCReservation) reservationsCourt2.get(position);
+            court2.setText(res.getName());
+        } else {
+            court2.setText((String) reservationsCourt2.get(position));
+        }
+
+        if (reservationsCourt3.get(position) instanceof BCReservation) {
+            BCReservation res = (BCReservation) reservationsCourt3.get(position);
+            court3.setText(res.getName());
+        } else {
+            court3.setText((String) reservationsCourt3.get(position));
+        }
+
+        court1.setButtonBackgroundForState(court1.getText().toString());
+        court2.setButtonBackgroundForState(court2.getText().toString());
+        court3.setButtonBackgroundForState(court3.getText().toString());
 
         return convertView;
+    }
+
+    private void getReservations() {
+
+        for (int pos = 0; pos < getCount(); pos++) {
+
+            String beginningTime = fromTimes.get(pos);
+            String[] beginnField = beginningTime.split(":");
+
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+            now.set(Calendar.HOUR_OF_DAY, Integer.parseInt(beginnField[0]));
+            now.set(Calendar.MINUTE, Integer.parseInt(beginnField[1]));
+            now.set(Calendar.SECOND, 0);
+            now.set(Calendar.MILLISECOND, 0);
+
+            for (int i = 0; i < reservationList.size(); i++) {
+
+                BCReservation reservation = reservationList.get(i);
+                String resBegin = reservation.getBeginTime();
+
+                String[] reBeginField = resBegin.split(":");
+
+                Calendar beginDate = Calendar.getInstance();
+                beginDate.setTime(new Date());
+                beginDate.set(Calendar.HOUR_OF_DAY, Integer.parseInt(reBeginField[0]));
+                beginDate.set(Calendar.MINUTE, Integer.parseInt(reBeginField[1]));
+                beginDate.set(Calendar.SECOND, 0);
+                beginDate.set(Calendar.MILLISECOND, 0);
+
+                String resEnd = reservation.getEndTime();
+
+                String[] reEndField = resEnd.split(":");
+
+                Calendar endDate = Calendar.getInstance();
+                endDate.setTime(new Date());
+                endDate.set(Calendar.HOUR_OF_DAY, Integer.parseInt(reEndField[0]));
+                endDate.set(Calendar.MINUTE, Integer.parseInt(reEndField[1]));
+                endDate.set(Calendar.SECOND, 0);
+                endDate.set(Calendar.MILLISECOND, 0);
+
+                Date nowMil = now.getTime();
+                Date beginMil = beginDate.getTime();
+                Date endMil = endDate.getTime();
+
+                if (nowMil.equals(beginMil) || nowMil.after(beginMil)) {
+                    if (nowMil.before(endMil)) {
+
+                        if (reservation.getCourt() == 1) {
+                            reservationsCourt1.set(pos, reservation);
+                        }
+
+                        if (reservation.getCourt() == 2) {
+                            reservationsCourt2.set(pos, reservation);
+                        }
+
+                        if (reservation.getCourt() == 3) {
+
+                            reservationsCourt3.set(pos, reservation);
+                        }
+                    }
+                }
+            }
+
+        }
     }
 
     private ArrayList<String> generateFromTimes() {
@@ -207,7 +297,7 @@ public class CourtAdapter extends BaseAdapter {
         ArrayList<String> timesForList = new ArrayList<String>();
         for (int i = hour; i <= endHour; i++) {
 
-            for (int m = minutes; m < 60; m ++) {
+            for (int m = minutes; m < 60; m++) {
                 String newTime = String.format("%02d", i) + ":" + String.format("%02d", m);
                 timesForList.add(newTime);
                 m = m + 29;
@@ -242,7 +332,7 @@ public class CourtAdapter extends BaseAdapter {
         ArrayList<String> timesForList = new ArrayList<String>();
         for (int i = hour; i <= endHour; i++) {
 
-            for (int m = minutes; m < 60; m ++) {
+            for (int m = minutes; m < 60; m++) {
                 String newTime = String.format("%02d", i) + ":" + String.format("%02d", m);
                 timesForList.add(newTime);
                 m = m + 29;
