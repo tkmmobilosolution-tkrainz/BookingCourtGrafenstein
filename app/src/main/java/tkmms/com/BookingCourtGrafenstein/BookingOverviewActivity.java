@@ -112,6 +112,10 @@ public class BookingOverviewActivity extends AppCompatActivity {
                 progressDialog.dismiss();
             }
         });
+
+        if (progressDialog.isShowing()) {
+            progressDialog.dismiss();
+        }
     }
 
     @Override

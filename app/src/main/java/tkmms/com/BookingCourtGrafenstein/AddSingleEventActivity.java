@@ -254,13 +254,13 @@ public class AddSingleEventActivity extends AppCompatActivity {
     }
 
     private void sendReservationsToFirebase() {
-        BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, beginDateString, court, 1, name);
+        String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
+        BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, beginDateString, court, 1, name, reservationsUuid);
         reservationList.add(reservation);
 
         final ArrayList<String> reservationUuids = new ArrayList<>();
 
         for (int i = 0; i < reservationList.size(); i++) {
-            String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
             reservationUuids.add(reservationsUuid);
 
             FirebaseDatabase.getInstance().getReference()

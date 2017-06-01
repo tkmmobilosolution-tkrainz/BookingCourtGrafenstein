@@ -22,11 +22,13 @@ public class BCReservation {
 
     private String name = null;
 
+    private String id;
+
     public BCReservation() {
 
     }
 
-    public BCReservation(String userUuid, String beginTime, String endTime, String date, long court, long isActive, String name) {
+    public BCReservation(String userUuid, String beginTime, String endTime, String date, long court, long isActive, String name, String id) {
 
         this.userUuid = userUuid;
         this.beginTime  = beginTime;
@@ -35,6 +37,7 @@ public class BCReservation {
         this.court = court;
         this.isActive = isActive;
         this.name = name;
+        this.id = id;
     }
 
     public void setUserUuid(String userUuid) {
@@ -91,6 +94,18 @@ public class BCReservation {
 
     public long getIsActive() { return isActive; }
 
+    public void setIsActive(long isActive) {
+        this.isActive = isActive;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public HashMap<String, Object> getHashMap() {
         HashMap<String, Object> map = new HashMap<>();
         map.put("userUuid", userUuid);
@@ -100,6 +115,7 @@ public class BCReservation {
         map.put("court", court);
         map.put("name", name);
         map.put("active", isActive);
+        map.put("id", id);
         return map;
     }
 }

@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -29,12 +31,19 @@ public class CourtAdapter extends BaseAdapter {
     ArrayList<Object> reservationsCourt2 = new ArrayList<>();
     ArrayList<Object> reservationsCourt3 = new ArrayList<>();
 
-    public CourtAdapter(ArrayList<BCReservation> reservationList, int numberOfCourts, String open, String close, double duration) {
+    private ButtonClickEventListener listener;
+
+    public CourtAdapter(ArrayList<BCReservation> reservationList, int numberOfCourts, String open, String close, double duration, ButtonClickEventListener listener) {
         this.reservationList = reservationList;
         this.numberOfCourts = numberOfCourts;
         this.open = open;
         this.close = close;
         this.duration = duration;
+        this.listener = listener;
+
+        reservationsCourt1.clear();
+        reservationsCourt2.clear();
+        reservationsCourt3.clear();
 
         for (int i = 0; i < 30; i++) {
 
@@ -74,7 +83,7 @@ public class CourtAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
         if (convertView == null) {
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.booking_list_item, parent, false);
@@ -218,7 +227,109 @@ public class CourtAdapter extends BaseAdapter {
         court2.setButtonBackgroundForState(court2.getText().toString());
         court3.setButtonBackgroundForState(court3.getText().toString());
 
+        court1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (reservationsCourt1.get(position) instanceof BCReservation) {
+                    BCReservation reservation = (BCReservation) reservationsCourt1.get(position);
+                    String userUuid = reservation.getUserUuid();
+
+                    if (userUuid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        listener.ownReservationClicked(reservation);
+                    } else {
+                        listener.differentReservationClicked(reservation);
+                    }
+                } else if (reservationsCourt1.get(position) == "Frei"){
+                    String selectedTime = fromTimes.get(position);
+                    int validHalfHours = 1;
+                    int newListSize = fromTimes.size() - position + 1;
+
+                    for (int i = 1; i <= newListSize; i++) {
+
+                        if (reservationsCourt1.get(position + i) == "Frei" && validHalfHours < 4) {
+                            validHalfHours += 1;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    listener.validReservationClicked(1, fromTimes.get(position), validHalfHours);
+                }
+            }
+        });
+
+        court2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (reservationsCourt2.get(position) instanceof BCReservation) {
+                    BCReservation reservation = (BCReservation) reservationsCourt2.get(position);
+                    String userUuid = reservation.getUserUuid();
+
+                    if (userUuid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        listener.ownReservationClicked(reservation);
+                    } else {
+                        listener.differentReservationClicked(reservation);
+                    }
+                } else if (reservationsCourt2.get(position) == "Frei"){
+                    String selectedTime = fromTimes.get(position);
+                    int validHalfHours = 1;
+                    int newListSize = fromTimes.size() - position + 1;
+
+                    for (int i = 1; i <= newListSize; i++) {
+
+                        if (reservationsCourt2.get(position + i) == "Frei" && validHalfHours < 4) {
+                            validHalfHours += 1;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    listener.validReservationClicked(2, selectedTime, validHalfHours);
+                }
+            }
+        });
+
+        court3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (reservationsCourt3.get(position) instanceof BCReservation) {
+                    BCReservation reservation = (BCReservation) reservationsCourt3.get(position);
+                    String userUuid = reservation.getUserUuid();
+
+                    if (userUuid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                        listener.ownReservationClicked(reservation);
+                    } else {
+                        listener.differentReservationClicked(reservation);
+                    }
+                } else if (reservationsCourt3.get(position) == "Frei"){
+                    String selectedTime = fromTimes.get(position);
+                    int validHalfHours = 1;
+                    int newListSize = fromTimes.size() - position + 1;
+
+                    for (int i = 1; i <= newListSize; i++) {
+
+                        if (reservationsCourt3.get(position + i) == "Frei" && validHalfHours < 4) {
+                            validHalfHours += 1;
+                        } else {
+                            break;
+                        }
+                    }
+
+                    listener.validReservationClicked(3, selectedTime, validHalfHours);
+                }
+            }
+        });
+
         return convertView;
+    }
+
+    public interface ButtonClickEventListener {
+        void validReservationClicked(int court, String beginTime, int duration);
+        void ownReservationClicked(BCReservation reservation);
+        void differentReservationClicked(BCReservation reservation);
     }
 
     private void getReservations() {
@@ -267,15 +378,15 @@ public class CourtAdapter extends BaseAdapter {
                 if (nowMil.equals(beginMil) || nowMil.after(beginMil)) {
                     if (nowMil.before(endMil)) {
 
-                        if (reservation.getCourt() == 1) {
+                        if (reservation.getCourt() == 1 && reservation.getIsActive() == 1) {
                             reservationsCourt1.set(pos, reservation);
                         }
 
-                        if (reservation.getCourt() == 2) {
+                        if (reservation.getCourt() == 2 && reservation.getIsActive() == 1) {
                             reservationsCourt2.set(pos, reservation);
                         }
 
-                        if (reservation.getCourt() == 3) {
+                        if (reservation.getCourt() == 3 && reservation.getIsActive() == 1) {
 
                             reservationsCourt3.set(pos, reservation);
                         }

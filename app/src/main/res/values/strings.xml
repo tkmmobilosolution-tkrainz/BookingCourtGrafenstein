@@ -16,4 +16,26 @@
         <item>Platz 2</item>
         <item>Platz 3</item>
     </string-array>
+
+    <string-array name="reservation1">
+        <item>0.5</item>
+    </string-array>
+
+    <string-array name="reservation2">
+        <item>0.5</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="reservation3">
+        <item>0.5</item>
+        <item>1</item>
+        <item>1.5</item>
+    </string-array>
+
+    <string-array name="reservation4">
+        <item>0.5</item>
+        <item>1</item>
+        <item>1.5</item>
+        <item>2</item>
+    </string-array>
 </resources>

@@ -20,14 +20,12 @@ public class BCButton extends android.widget.Button {
 
     public void setButtonBackgroundForState(String state) {
 
-        if (state.equals("Frei")) {
+        if (state.contains("Frei")) {
             this.setBackgroundTintList(generateColorStateList(R.color.bc_green));
-        } else if (state.equals("Besetzt")) {
-            this.setBackgroundTintList(generateColorStateList(R.color.bc_red));
-        } else if (state.equals("Training")){
+        } else if (state.contains("Training")){
             this.setBackgroundTintList(generateColorStateList(R.color.bc_blue));
         } else {
-            this.setBackgroundTintList(generateColorStateList(R.color.bc_purple));
+            this.setBackgroundTintList(generateColorStateList(R.color.bc_red));
         }
     }
 

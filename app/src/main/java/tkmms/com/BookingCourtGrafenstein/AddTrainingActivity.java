@@ -361,7 +361,8 @@ public class AddTrainingActivity extends AppCompatActivity {
         }
 
         for (int res = 0; res < dateArray.size(); res++) {
-            BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, dateArray.get(res), court, 1, name);
+            String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
+            BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, dateArray.get(res), court, 1, name, reservationsUuid);
             reservationList.add(reservation);
         }
     }
@@ -371,12 +372,11 @@ public class AddTrainingActivity extends AppCompatActivity {
         final ArrayList<String> reservationUuids = new ArrayList<>();
 
         for (int i = 0; i < reservationList.size(); i++) {
-            String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
-            reservationUuids.add(reservationsUuid);
+            reservationUuids.add(reservationList.get(i).getId());
 
             FirebaseDatabase.getInstance().getReference()
                     .child("reservations")
-                    .child(reservationsUuid)
+                    .child(reservationList.get(i).getId())
                     .setValue(reservationList.get(i).getHashMap());
         }
 
