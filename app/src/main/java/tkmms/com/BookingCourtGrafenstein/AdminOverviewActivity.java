@@ -48,6 +48,8 @@ public class AdminOverviewActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_overview);
+
+        getSupportActionBar().setTitle("Admin Übersicht");
     }
 
     @Override
@@ -57,8 +59,7 @@ public class AdminOverviewActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
         progressDialog.setCancelable(false);
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
-        progressDialog.setMessage("Lade Daten");
-        progressDialog.show();
+        showProgressBarWithMessage("Lade Daten");
 
         loadParametters();
     }
@@ -92,8 +93,12 @@ public class AdminOverviewActivity extends AppCompatActivity {
         ArrayList<String> listItems = new ArrayList<>(Arrays.asList(listOptions));
         final ListView adminListView = (ListView) findViewById(R.id.listview_admin);
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listItems);
-        adminListView.setAdapter(adapter);
-        progressDialog.dismiss();
+
+        if (!this.isDestroyed()) {
+            adminListView.setAdapter(adapter);
+            progressDialog.dismiss();
+        }
+
         adminListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -108,19 +113,19 @@ public class AdminOverviewActivity extends AppCompatActivity {
                     isCourtClosed = isCourtClosed == 1 ? 0 : 1;
                     BCApplication.getApplication().getDatabaseHelper().setCourtClosed(isCourtClosed);
 
-                    progressDialog.show();
+                    showProgressBarWithMessage(isCourtClosed == 1 ? "Platz wird gesperrt" : "Platz wird freigegeben");
 
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
 
+                            String toastString = isCourtClosed == 1 ? "Platz wurde gesperrt" : "Platz wurde freigegeben";
+                            Toast.makeText(AdminOverviewActivity.this, toastString, Toast.LENGTH_LONG).show();
                             loadParametters();
                         }
                     }, 1000);
 
-                    String toastString = isCourtClosed == 1 ? "Platz wurde gesperrt" : "Platz wurde freigegeben";
-                    Toast.makeText(AdminOverviewActivity.this, toastString, Toast.LENGTH_LONG).show();
                 } else if (position == 3) {
                     Intent intent = new Intent(getApplicationContext(), BookingOverviewActivity.class);
                     startActivity(intent);
@@ -135,13 +140,18 @@ public class AdminOverviewActivity extends AppCompatActivity {
 
         isCourtClosed = BCApplication.getApplication().getCourtClosed();
         if (isCourtClosed == 1) {
-            listOptions[2] = "Platz freigeben";
+            listOptions[2] = "Platz ist gesperrt";
         } else {
-            listOptions[2] = "Platz sperren";
+            listOptions[2] = "Platz ist freigegeben";
         }
 
         listOptions[3] = "Einheiten";
 
         setListWithArray();
+    }
+
+    private void showProgressBarWithMessage(String message) {
+        progressDialog.setMessage(message);
+        progressDialog.show();
     }
 }

@@ -30,22 +30,31 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"/>
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:text="Dauer:" />
+        android:orientation="horizontal">
 
-    <Spinner
-        android:id="@+id/hintResSinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="7dp"
-        android:layout_marginRight="7dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:text="Dauer:" />
+
+        <Spinner
+            android:id="@+id/hintResSinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|right"
+            android:layout_weight="1"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp" />
+    </LinearLayout>
+
 
     <Button
         android:text="Verstanden"

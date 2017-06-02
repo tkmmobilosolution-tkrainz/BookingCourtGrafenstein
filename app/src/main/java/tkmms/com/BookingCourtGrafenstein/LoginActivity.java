@@ -52,6 +52,8 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        getSupportActionBar().setTitle("Anmelden");
+
         Button loginButton = (Button)findViewById(R.id.btnLogin);
 
         emailET = (EditText) findViewById(R.id.et_login_email);

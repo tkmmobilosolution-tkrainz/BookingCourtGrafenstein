@@ -24,6 +24,8 @@ public class FirstLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_login);
 
+        getSupportActionBar().setTitle("Passwort ändern");
+
         final EditText pwd = (EditText) findViewById(R.id.et_fist_password);
         final EditText checkPwd = (EditText) findViewById(R.id.et_second_password);
 

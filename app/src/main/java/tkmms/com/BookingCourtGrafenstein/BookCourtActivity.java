@@ -37,17 +37,17 @@ import java.util.UUID;
 
 public class BookCourtActivity extends AppCompatActivity {
 
-    ArrayList<BCReservation> reservationList = new ArrayList<>();
-    long numberOfCourts = 0;
-    String open;
-    String close;
-    double duration;
+    private ArrayList<BCReservation> reservationList = new ArrayList<>();
+    private long numberOfCourts = 0;
+    private String open;
+    private String close;
+    private double duration;
 
-    int selectedCourt;
-    String selectedTime;
+    private int selectedCourt;
+    private String selectedTime;
 
-    CourtAdapter adapter;
-    String date;
+    private CourtAdapter adapter;
+    private String date;
 
     private AlertDialog deleteAlertDialog;
     private AlertDialog resAlertDialog;
@@ -57,6 +57,7 @@ public class BookCourtActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog = null;
 
+    private int refreshPosition = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,11 @@ public class BookCourtActivity extends AppCompatActivity {
 
         date = getIntent().getStringExtra("date");
 
+        getSupportActionBar().setTitle(date);
+
         getReservations();
+
+
     }
 
     private void getReservations() {
@@ -90,14 +95,14 @@ public class BookCourtActivity extends AppCompatActivity {
 
                         HashMap<String, Object> reservationMap = entry.getValue();
                         BCReservation reservation = new BCReservation();
-                        reservation.setActive((long)reservationMap.get("active"));
-                        reservation.setDate((String)reservationMap.get("date"));
-                        reservation.setName((String)reservationMap.get("name"));
-                        reservation.setBeginTime((String)reservationMap.get("beginTime"));
-                        reservation.setEndTime((String)reservationMap.get("endTime"));
-                        reservation.setUserUuid((String)reservationMap.get("userUuid"));
-                        reservation.setCourt((long)reservationMap.get("court"));
-                        reservation.setId((String)reservationMap.get("id"));
+                        reservation.setActive((long) reservationMap.get("active"));
+                        reservation.setDate((String) reservationMap.get("date"));
+                        reservation.setName((String) reservationMap.get("name"));
+                        reservation.setBeginTime((String) reservationMap.get("beginTime"));
+                        reservation.setEndTime((String) reservationMap.get("endTime"));
+                        reservation.setUserUuid((String) reservationMap.get("userUuid"));
+                        reservation.setCourt((long) reservationMap.get("court"));
+                        reservation.setId((String) reservationMap.get("id"));
                         reservationList.add(reservation);
                     }
                 }
@@ -132,11 +137,12 @@ public class BookCourtActivity extends AppCompatActivity {
 
     private void setListView() {
 
-        ListView listVie = (ListView)findViewById(R.id.bookingListView);
+        ListView listVie = (ListView) findViewById(R.id.bookingListView);
         adapter = new CourtAdapter(reservationList, (int) numberOfCourts, open, close, duration, new CourtAdapter.ButtonClickEventListener() {
             @Override
-            public void validReservationClicked(int court, String time, int duration) {
+            public void validReservationClicked(int court, String time, int duration, int position) {
 
+                refreshPosition = position;
                 selectedCourt = court;
                 selectedTime = time;
                 initReservationHint(duration);
@@ -144,8 +150,9 @@ public class BookCourtActivity extends AppCompatActivity {
             }
 
             @Override
-            public void ownReservationClicked(BCReservation reservation) {
+            public void ownReservationClicked(BCReservation reservation, int position) {
 
+                refreshPosition = position;
                 initDeleteHint(reservation);
                 deleteAlertDialog.show();
             }
@@ -155,8 +162,12 @@ public class BookCourtActivity extends AppCompatActivity {
 
             }
         });
-        listVie.setAdapter(adapter);
-        progressDialog.dismiss();
+
+        if (!this.isDestroyed()) {
+            listVie.setAdapter(adapter);
+            listVie.setSelection(refreshPosition);
+            progressDialog.dismiss();
+        }
     }
 
     private void makeReservation(String reservationId, BCReservation reservation) {
@@ -184,7 +195,7 @@ public class BookCourtActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.signout) {
             FirebaseAuth.getInstance().signOut();
-            // TODO: shared prefs bcuser = null
+
             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
             SharedPreferences.Editor editor = prefs.edit();
             editor.remove("USER");
@@ -206,6 +217,7 @@ public class BookCourtActivity extends AppCompatActivity {
         TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
         hintMessageView.setText("Wilst du deine Reservierung löschen?");
         final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+        hintButton.setText("Reservierung löschen");
 
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -225,7 +237,7 @@ public class BookCourtActivity extends AppCompatActivity {
         final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(BookCourtActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.reservation_alert, null);
         TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintResTitleTextView);
-        hintTitleView.setText("Achtung");
+        hintTitleView.setText("Reservierung");
 
         TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintResMessageTextView);
         hintMessageView.setText("Wähle aus, wie lange du reservieren willst.");
@@ -246,10 +258,12 @@ public class BookCourtActivity extends AppCompatActivity {
             case 4:
                 array = R.array.reservation4;
                 break;
+            default:
+                break;
         }
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, array, android.R.layout.simple_list_item_1);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        ArrayAdapter<CharSequence> spinerAdapter = ArrayAdapter.createFromResource(this, array, android.R.layout.simple_list_item_1);
+        spinerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinerAdapter);
         spinner.setSelection(0);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -264,6 +278,7 @@ public class BookCourtActivity extends AppCompatActivity {
         });
 
         final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintResButton);
+        hintButton.setText("Reservieren");
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -284,7 +299,7 @@ public class BookCourtActivity extends AppCompatActivity {
 
     private void checkIfReservationIsValid() {
         final ArrayList<BCReservation> oldReservations = reservationList;
-        final ArrayList<BCReservation> newReservationList = new ArrayList<BCReservation>();
+        final ArrayList<BCReservation> newReservationList = new ArrayList<>();
 
         final DatabaseReference reference = FirebaseDatabase.getInstance().getReference("reservations");
         reference.orderByChild("date").equalTo(date).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -297,53 +312,36 @@ public class BookCourtActivity extends AppCompatActivity {
 
                         HashMap<String, Object> reservationMap = entry.getValue();
                         BCReservation reservation = new BCReservation();
-                        reservation.setActive((long)reservationMap.get("active"));
-                        reservation.setDate((String)reservationMap.get("date"));
-                        reservation.setName((String)reservationMap.get("name"));
-                        reservation.setBeginTime((String)reservationMap.get("beginTime"));
-                        reservation.setEndTime((String)reservationMap.get("endTime"));
-                        reservation.setUserUuid((String)reservationMap.get("userUuid"));
-                        reservation.setCourt((long)reservationMap.get("court"));
-                        reservation.setId((String)reservationMap.get("id"));
+                        reservation.setActive((long) reservationMap.get("active"));
+                        reservation.setDate((String) reservationMap.get("date"));
+                        reservation.setName((String) reservationMap.get("name"));
+                        reservation.setBeginTime((String) reservationMap.get("beginTime"));
+                        reservation.setEndTime((String) reservationMap.get("endTime"));
+                        reservation.setUserUuid((String) reservationMap.get("userUuid"));
+                        reservation.setCourt((long) reservationMap.get("court"));
+                        reservation.setId((String) reservationMap.get("id"));
                         newReservationList.add(reservation);
                     }
 
                     if (oldReservations.size() <= newReservationList.size()) {
-                        BCUser currentUser = BCApplication.getApplication().getGlobals().getCurrentUser();
-                        String reservationId = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
-                        String beginTime = selectedTime;
-                        String endTime = "";
-
-                        String[] curTimeArray = selectedTime.split(":");
-                        int hour = Integer.parseInt(curTimeArray[0]);
-                        int minutes = Integer.parseInt(curTimeArray[1]);
-
-                        for (int i = 1; i <= selectedDuration; i++) {
-
-                            if (minutes == 30) {
-                                minutes = 0;
-                                hour += 1;
-                            } else if (minutes == 0) {
-                                minutes = 30;
-                            }
-
-                            if (i == selectedDuration) {
-                                endTime = String.format("%02d", hour) + ":" + String.format("%02d", minutes);
-                            }
+                        if (checkUserReservation()) {
+                            reserve();
+                        } else {
+                            progressDialog.dismiss();
                         }
-
-                        BCReservation newReservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTime, endTime, date, selectedCourt, 1, currentUser.getLastname(), reservationId);
-                        makeReservation(reservationId, newReservation);
                     } else {
-                        initHintAlert("In der Zwischenzeit wurde eine neue Reservierung getätigt. Bitte versuche es noch einmal.");
+                        initHintAlert("In der Zwischenzeit wurde eine neue Reservierung getätigt. Bitte versuche es noch einmal.", true);
                         hintAlertDialog.show();
+                        progressDialog.dismiss();
                     }
+                } else {
+                    reserve();
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                initHintAlert("Ein Fehler ist aufgetretten. Bitte versuche es noch einmal.");
+                initHintAlert("Ein Fehler ist aufgetretten. Bitte versuche es noch einmal.", true);
                 hintAlertDialog.show();
                 progressDialog.dismiss();
             }
@@ -352,7 +350,49 @@ public class BookCourtActivity extends AppCompatActivity {
 
     }
 
-    private void initHintAlert(String message) {
+    private boolean checkUserReservation() {
+
+        for (int i = 0; i < reservationList.size(); i ++) {
+
+            if (reservationList.get(i).getUserUuid().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
+                initHintAlert("Du hast für heute bereits eine Reservierung getätigt. Storniere diese um den gewünschten Termin reservieren zu können.", false);
+                hintAlertDialog.show();
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    private void reserve() {
+        BCUser currentUser = BCApplication.getApplication().getGlobals().getCurrentUser();
+        String reservationId = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
+        String beginTime = selectedTime;
+        String endTime = "";
+
+        String[] curTimeArray = selectedTime.split(":");
+        int hour = Integer.parseInt(curTimeArray[0]);
+        int minutes = Integer.parseInt(curTimeArray[1]);
+
+        for (int i = 1; i <= selectedDuration; i++) {
+
+            if (minutes == 30) {
+                minutes = 0;
+                hour += 1;
+            } else if (minutes == 0) {
+                minutes = 30;
+            }
+
+            if (i == selectedDuration) {
+                endTime = String.format("%02d", hour) + ":" + String.format("%02d", minutes);
+            }
+        }
+
+        BCReservation newReservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTime, endTime, date, selectedCourt, 1, currentUser.getLastname(), reservationId);
+        makeReservation(reservationId, newReservation);
+    }
+
+    private void initHintAlert(String message, final boolean loadreservations) {
         LayoutInflater inflater = this.getLayoutInflater();
         final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(BookCourtActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.hint, null);
@@ -366,7 +406,9 @@ public class BookCourtActivity extends AppCompatActivity {
         hintButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getReservations();
+                if (loadreservations) {
+                    getReservations();
+                }
                 hintAlertDialog.dismiss();
             }
         });

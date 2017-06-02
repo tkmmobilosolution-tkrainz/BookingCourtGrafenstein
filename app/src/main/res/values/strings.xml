@@ -18,24 +18,24 @@
     </string-array>
 
     <string-array name="reservation1">
-        <item>0.5</item>
+        <item>0.5 Stunden</item>
     </string-array>
 
     <string-array name="reservation2">
-        <item>0.5</item>
-        <item>1</item>
+        <item>0.5 Stunden</item>
+        <item>1 Stunde</item>
     </string-array>
 
     <string-array name="reservation3">
-        <item>0.5</item>
-        <item>1</item>
-        <item>1.5</item>
+        <item>0.5 Stunden</item>
+        <item>1 Stunde</item>
+        <item>1.5 Stunden</item>
     </string-array>
 
     <string-array name="reservation4">
-        <item>0.5</item>
-        <item>1</item>
-        <item>1.5</item>
-        <item>2</item>
+        <item>0.5 Stunden</item>
+        <item>1 Stunde</item>
+        <item>1.5 Stunden</item>
+        <item>2 Stunden</item>
     </string-array>
 </resources>

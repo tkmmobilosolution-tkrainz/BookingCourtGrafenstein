@@ -46,6 +46,7 @@ public class BookingReservationActivity extends AppCompatActivity {
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         progressDialog.setMessage("Lade Daten");
 
+        getSupportActionBar().setTitle("Termin Details");
 
         loadReservationList();
 
@@ -54,8 +55,11 @@ public class BookingReservationActivity extends AppCompatActivity {
             public void listLoadedSuccess() {
                 ListView listview = (ListView) findViewById(R.id.reservation_list);
                 BookingReservationAdapter adapter = new BookingReservationAdapter(reservations, ids);
-                listview.setAdapter(adapter);
-                progressDialog.dismiss();
+
+                if (!BookingReservationActivity.this.isDestroyed()) {
+                    listview.setAdapter(adapter);
+                    progressDialog.dismiss();
+                }
             }
         };
     }

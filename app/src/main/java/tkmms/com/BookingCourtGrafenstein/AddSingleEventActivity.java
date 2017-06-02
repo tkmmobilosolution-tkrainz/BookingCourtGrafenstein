@@ -52,7 +52,6 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
     private String name;
     private String beginDateString;
-    private String endDateString;
     private String beginTimeString;
     private String endTimeString;
 
@@ -66,7 +65,6 @@ public class AddSingleEventActivity extends AppCompatActivity {
     private ProgressDialog progressDialog = null;
 
     private static final String START_DATUM_BUTTON_TITLE = "Datum wählen";
-    private static final String END_DATE_BUTTON_TITLE = "End Datum wählen";
     private static final String END_TIME_BUTTON_TITLE = "Ende wählen";
     private static final String BEGIN_TIME_BUTTON_TITLE = "Begin wählen";
 
@@ -75,13 +73,15 @@ public class AddSingleEventActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_single_event);
 
+        getSupportActionBar().setTitle("Einzeltermin hinzufügen");
+
         initCourtSpinner();
 
         trainingName = (EditText) findViewById(R.id.et_single_training_name);
         trainingName.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
         dateButton = (Button) findViewById(R.id.btn_single_date);
-        dateButton.setText(END_DATE_BUTTON_TITLE);
+        dateButton.setText(START_DATUM_BUTTON_TITLE);
         dateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -303,11 +303,16 @@ public class AddSingleEventActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
+
+                if (!AddSingleEventActivity.this.isDestroyed()) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
+                }
 
                 Intent intent = new Intent(AddSingleEventActivity.this, BookingOverviewActivity.class);
                 startActivity(intent);
+                finish();
+
             }
         }, 1000);
     }
@@ -358,7 +363,7 @@ public class AddSingleEventActivity extends AppCompatActivity {
             hintAlertDialog.show();
             return false;
         } else if (beginDateButtonTitle == START_DATUM_BUTTON_TITLE) {
-            initHintAlert("Bitte wähle ein Start Datum aus!");
+            initHintAlert("Bitte wähle ein Datum aus!");
             hintAlertDialog.show();
             return false;
         } else if (beginTimeButtonTitle == BEGIN_TIME_BUTTON_TITLE) {
@@ -380,7 +385,7 @@ public class AddSingleEventActivity extends AppCompatActivity {
         final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddSingleEventActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.hint, null);
         TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
-        hintTitleView.setText("Warnung");
+        hintTitleView.setText("Achtung");
 
         TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
         hintMessageView.setText(message);

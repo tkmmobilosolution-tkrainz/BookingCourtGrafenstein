@@ -44,6 +44,9 @@ public class MemberDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_member_detail);
 
         user = (BCUser) getIntent().getSerializableExtra("user");
+
+        getSupportActionBar().setTitle(user.getLastname() + ", " + user.getFirstname());
+
         final TextView firstNameTV = (TextView) findViewById(R.id.et_detail_first_name);
         final TextView lastNameTV = (TextView) findViewById(R.id.et_detail_last_name);
         final Switch switchDetail = (Switch) findViewById(R.id.switch_detail);

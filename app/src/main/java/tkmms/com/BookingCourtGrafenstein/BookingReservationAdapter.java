@@ -72,12 +72,15 @@ public class BookingReservationAdapter extends BaseAdapter {
         modifyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String currentId = ids.get(position);
-                FirebaseDatabase.getInstance().getReference().child("reservations").child(currentId).child("active").setValue(isActive == 0 ? 1 : 0);
 
-                if (parent.getContext() instanceof BookingReservationActivity) {
+                if (isActive == 1) {
+                    String currentId = ids.get(position);
+                    FirebaseDatabase.getInstance().getReference().child("reservations").child(currentId).child("active").setValue(isActive == 0 ? 1 : 0);
 
-                    ((BookingReservationActivity) parent.getContext()).loadReservationList();
+                    if (parent.getContext() instanceof BookingReservationActivity) {
+
+                        ((BookingReservationActivity) parent.getContext()).loadReservationList();
+                    }
                 }
             }
         });

@@ -39,6 +39,8 @@ public class CalendarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calendar);
 
+        getSupportActionBar().setTitle("Termin wählen");
+
         LayoutInflater inflater = this.getLayoutInflater();
         final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(CalendarActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.hint, null);

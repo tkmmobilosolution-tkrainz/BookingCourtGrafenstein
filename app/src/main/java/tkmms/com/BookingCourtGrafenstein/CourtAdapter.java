@@ -24,12 +24,12 @@ public class CourtAdapter extends BaseAdapter {
     private String close;
     private double duration;
 
-    ArrayList<String> fromTimes;
-    ArrayList<String> toTimes;
+    private ArrayList<String> fromTimes;
+    private ArrayList<String> toTimes;
 
-    ArrayList<Object> reservationsCourt1 = new ArrayList<>();
-    ArrayList<Object> reservationsCourt2 = new ArrayList<>();
-    ArrayList<Object> reservationsCourt3 = new ArrayList<>();
+    private ArrayList<Object> reservationsCourt1 = new ArrayList<>();
+    private ArrayList<Object> reservationsCourt2 = new ArrayList<>();
+    private ArrayList<Object> reservationsCourt3 = new ArrayList<>();
 
     private ButtonClickEventListener listener;
 
@@ -200,6 +200,8 @@ public class CourtAdapter extends BaseAdapter {
                 court9.setVisibility(View.VISIBLE);
                 court10.setVisibility(View.VISIBLE);
                 break;
+            default:
+                break;
         }
 
         if (reservationsCourt1.get(position) instanceof BCReservation) {
@@ -236,11 +238,11 @@ public class CourtAdapter extends BaseAdapter {
                     String userUuid = reservation.getUserUuid();
 
                     if (userUuid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        listener.ownReservationClicked(reservation);
+                        listener.ownReservationClicked(reservation, position);
                     } else {
                         listener.differentReservationClicked(reservation);
                     }
-                } else if (reservationsCourt1.get(position) == "Frei"){
+                } else if (reservationsCourt1.get(position) == "Frei") {
                     String selectedTime = fromTimes.get(position);
                     int validHalfHours = 1;
                     int newListSize = fromTimes.size() - position + 1;
@@ -254,7 +256,7 @@ public class CourtAdapter extends BaseAdapter {
                         }
                     }
 
-                    listener.validReservationClicked(1, fromTimes.get(position), validHalfHours);
+                    listener.validReservationClicked(1, fromTimes.get(position), validHalfHours, position);
                 }
             }
         });
@@ -268,11 +270,11 @@ public class CourtAdapter extends BaseAdapter {
                     String userUuid = reservation.getUserUuid();
 
                     if (userUuid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        listener.ownReservationClicked(reservation);
+                        listener.ownReservationClicked(reservation, position);
                     } else {
                         listener.differentReservationClicked(reservation);
                     }
-                } else if (reservationsCourt2.get(position) == "Frei"){
+                } else if (reservationsCourt2.get(position) == "Frei") {
                     String selectedTime = fromTimes.get(position);
                     int validHalfHours = 1;
                     int newListSize = fromTimes.size() - position + 1;
@@ -286,7 +288,7 @@ public class CourtAdapter extends BaseAdapter {
                         }
                     }
 
-                    listener.validReservationClicked(2, selectedTime, validHalfHours);
+                    listener.validReservationClicked(2, selectedTime, validHalfHours, position);
                 }
             }
         });
@@ -300,11 +302,11 @@ public class CourtAdapter extends BaseAdapter {
                     String userUuid = reservation.getUserUuid();
 
                     if (userUuid.equals(FirebaseAuth.getInstance().getCurrentUser().getUid())) {
-                        listener.ownReservationClicked(reservation);
+                        listener.ownReservationClicked(reservation, position);
                     } else {
                         listener.differentReservationClicked(reservation);
                     }
-                } else if (reservationsCourt3.get(position) == "Frei"){
+                } else if (reservationsCourt3.get(position) == "Frei") {
                     String selectedTime = fromTimes.get(position);
                     int validHalfHours = 1;
                     int newListSize = fromTimes.size() - position + 1;
@@ -318,7 +320,7 @@ public class CourtAdapter extends BaseAdapter {
                         }
                     }
 
-                    listener.validReservationClicked(3, selectedTime, validHalfHours);
+                    listener.validReservationClicked(3, selectedTime, validHalfHours, position);
                 }
             }
         });
@@ -327,8 +329,10 @@ public class CourtAdapter extends BaseAdapter {
     }
 
     public interface ButtonClickEventListener {
-        void validReservationClicked(int court, String beginTime, int duration);
-        void ownReservationClicked(BCReservation reservation);
+        void validReservationClicked(int court, String beginTime, int duration, int position);
+
+        void ownReservationClicked(BCReservation reservation, int position);
+
         void differentReservationClicked(BCReservation reservation);
     }
 

@@ -42,6 +42,8 @@ public class BookingOverviewActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking_overview);
 
+        getSupportActionBar().setTitle("Termin wählen");
+
         progressDialog = new ProgressDialog(this, R.style.SpinnerTheme);
         progressDialog.setCancelable(false);
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);

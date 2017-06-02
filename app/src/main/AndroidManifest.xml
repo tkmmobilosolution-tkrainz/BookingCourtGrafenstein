@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+
+        <activity android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -18,48 +20,63 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".FirstLoginActivity">
+        <activity android:name=".FirstLoginActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".CalendarActivity">
+        <activity android:name=".CalendarActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".BookCourtActivity">
+        <activity android:name=".BookCourtActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AddMemberActivity">
+        <activity android:name=".AddMemberActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AdminOverviewActivity">
+        <activity android:name=".AdminOverviewActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".CloseCourtActivity">
+        <activity android:name=".CloseCourtActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".MemberOverviewActivity">
+        <activity android:name=".MemberOverviewActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".MemberDetailActivity">
+        <activity android:name=".MemberDetailActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".ChooseCloseActivity">
+        <activity android:name=".ChooseCloseActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AddTrainingActivity">
+        <activity android:name=".AddTrainingActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".BookingOverviewActivity">
+        <activity android:name=".BookingOverviewActivity"
+            android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".BookingReservationActivity">
+        <activity android:name=".BookingReservationActivity"
+            android:screenOrientation="portrait">
         </activity>
         
-        <activity android:name=".AddSingleEventActivity"></activity>
+        <activity android:name=".AddSingleEventActivity"
+            android:screenOrientation="portrait"></activity>
         
-        <activity android:name=".ChooseBookingActivity"></activity>
+        <activity android:name=".ChooseBookingActivity"
+            android:screenOrientation="portrait"></activity>
 
     </application>
 

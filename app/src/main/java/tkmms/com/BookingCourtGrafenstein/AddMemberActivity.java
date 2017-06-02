@@ -56,6 +56,8 @@ public class AddMemberActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_member);
 
+        getSupportActionBar().setTitle("Mitglied hinzufügen");
+
         final EditText etEmail = (EditText) findViewById(R.id.et_add_email);
         final EditText etFirstName = (EditText) findViewById(R.id.et_add_firstname);
         final EditText etLastName = (EditText) findViewById(R.id.et_add_lastname);
@@ -159,7 +161,6 @@ public class AddMemberActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(), "Mitglied wurde angelegt", Toast.LENGTH_LONG).show();
                     onBackPressed();
-
                 }
             }
         });

@@ -23,12 +23,15 @@ public class ChooseBookingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_booking);
 
+        getSupportActionBar().setTitle("Einheit wählen");
+
         Button singleButton = (Button) findViewById(R.id.btn_add_single_event);
         singleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseBookingActivity.this, AddSingleEventActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -38,6 +41,7 @@ public class ChooseBookingActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ChooseBookingActivity.this, AddTrainingActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
     }

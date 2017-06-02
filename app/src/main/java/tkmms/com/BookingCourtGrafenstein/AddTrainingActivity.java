@@ -78,6 +78,8 @@ public class AddTrainingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_training);
 
+        getSupportActionBar().setTitle("Wöchentlichen Termin hinzufügen");
+        
         initWeekdaySpinner();
         initCourtSpinner();
 
@@ -414,11 +416,15 @@ public class AddTrainingActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                progressDialog.dismiss();
-                Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
+
+                if (!AddTrainingActivity.this.isDestroyed()) {
+                    progressDialog.dismiss();
+                    Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
+                }
 
                 Intent intent = new Intent(AddTrainingActivity.this, BookingOverviewActivity.class);
                 startActivity(intent);
+                finish();
             }
         }, 1000);
     }
@@ -496,7 +502,7 @@ public class AddTrainingActivity extends AppCompatActivity {
         final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddTrainingActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.hint, null);
         TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
-        hintTitleView.setText("Warnung");
+        hintTitleView.setText("Achtung");
 
         TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
         hintMessageView.setText(message);

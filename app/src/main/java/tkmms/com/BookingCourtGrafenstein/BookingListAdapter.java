@@ -120,15 +120,18 @@ public class BookingListAdapter extends BaseAdapter {
         deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FirebaseDatabase.getInstance().getReference().child("bookings").child(ids.get(position)).child("active").setValue(isActive == 0 ? 1 : 0);
 
-                for (int i = 0; i < currentBooking.getReservationIds().size(); i++) {
-                    FirebaseDatabase.getInstance().getReference().child("reservations").child(currentBooking.getReservationIds().get(i)).child("active").setValue(isActive == 0 ? 1 : 0);
-                }
+                if (isActive == 1) {
+                    FirebaseDatabase.getInstance().getReference().child("bookings").child(ids.get(position)).child("active").setValue(isActive == 0 ? 1 : 0);
 
-                if (parent.getContext() instanceof BookingOverviewActivity) {
+                    for (int i = 0; i < currentBooking.getReservationIds().size(); i++) {
+                        FirebaseDatabase.getInstance().getReference().child("reservations").child(currentBooking.getReservationIds().get(i)).child("active").setValue(isActive == 0 ? 1 : 0);
+                    }
 
-                    ((BookingOverviewActivity) parent.getContext()).loadList();
+                    if (parent.getContext() instanceof BookingOverviewActivity) {
+
+                        ((BookingOverviewActivity) parent.getContext()).loadList();
+                    }
                 }
             }
         });
