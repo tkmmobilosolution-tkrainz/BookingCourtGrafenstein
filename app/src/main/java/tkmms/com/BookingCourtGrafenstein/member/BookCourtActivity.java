@@ -1,8 +1,11 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.member;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AlertDialog;
@@ -30,6 +33,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
+
+import tkmms.com.BookingCourtGrafenstein.base.BCApplication;
+import tkmms.com.BookingCourtGrafenstein.base.BCReservation;
+import tkmms.com.BookingCourtGrafenstein.base.BCUser;
+import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 03/05/2017.
@@ -59,6 +68,8 @@ public class BookCourtActivity extends AppCompatActivity {
 
     private int refreshPosition = 0;
 
+    private Bundle savedInstanceState;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,11 +85,14 @@ public class BookCourtActivity extends AppCompatActivity {
         getSupportActionBar().setTitle(date);
 
         getReservations();
-
-
     }
 
     private void getReservations() {
+
+        if (!isOnline()) {
+            return;
+        }
+
         if (!progressDialog.isShowing()) {
             showProgressBarWithTitle("Lade Reservierungen");
         }
@@ -137,6 +151,10 @@ public class BookCourtActivity extends AppCompatActivity {
 
     private void setListView() {
 
+        if (!isOnline()) {
+            return;
+        }
+
         ListView listVie = (ListView) findViewById(R.id.bookingListView);
         adapter = new CourtAdapter(reservationList, (int) numberOfCourts, open, close, duration, new CourtAdapter.ButtonClickEventListener() {
             @Override
@@ -171,6 +189,11 @@ public class BookCourtActivity extends AppCompatActivity {
     }
 
     private void makeReservation(String reservationId, BCReservation reservation) {
+
+        if (!isOnline()) {
+            return;
+        }
+
         FirebaseDatabase.getInstance().getReference()
                 .child("reservations")
                 .child(reservationId)
@@ -180,6 +203,11 @@ public class BookCourtActivity extends AppCompatActivity {
     }
 
     private void deleteOwnReservation(BCReservation reservation) {
+
+        if (!isOnline()) {
+            return;
+        }
+
         FirebaseDatabase.getInstance().getReference().child("reservations").child(reservation.getId()).removeValue();
 
         getReservations();
@@ -298,6 +326,11 @@ public class BookCourtActivity extends AppCompatActivity {
     }
 
     private void checkIfReservationIsValid() {
+
+        if (!isOnline()) {
+            return;
+        }
+
         final ArrayList<BCReservation> oldReservations = reservationList;
         final ArrayList<BCReservation> newReservationList = new ArrayList<>();
 
@@ -420,5 +453,44 @@ public class BookCourtActivity extends AppCompatActivity {
     private void showProgressBarWithTitle(String title) {
         progressDialog.setMessage(title);
         progressDialog.show();
+    }
+
+    private boolean isOnline() {
+
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            final AlertDialog hintAlertDialog;
+
+            LayoutInflater inflater = this.getLayoutInflater();
+            final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(this);
+            final View hintAlertView = inflater.inflate(R.layout.hint, null);
+            TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+            hintTitleView.setText("Achtung");
+
+            TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+            hintMessageView.setText("Keine Verbindung zum Internet. Bitte überprüfe deine Internetverbindung und versuche es erneut.");
+            final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+            dialogHintBuilder.setView(hintAlertView);
+            hintAlertDialog = dialogHintBuilder.create();
+
+            hintButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(getIntent());
+                    hintAlertDialog.dismiss();
+                }
+            });
+
+            hintAlertDialog.show();
+
+            return false;
+        }
     }
 }

@@ -1,13 +1,12 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.authorization;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
@@ -18,10 +17,7 @@ import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,7 +26,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
+
+import tkmms.com.BookingCourtGrafenstein.R;
+import tkmms.com.BookingCourtGrafenstein.admin.overview.AdminOverviewActivity;
+import tkmms.com.BookingCourtGrafenstein.base.BCGlobals;
+import tkmms.com.BookingCourtGrafenstein.base.BCUser;
+import tkmms.com.BookingCourtGrafenstein.member.CalendarActivity;
+import tkmms.com.BookingCourtGrafenstein.member.FirstLoginActivity;
 
 /**
  * Created by tkrainz on 03/05/2017.
@@ -97,6 +99,8 @@ public class LoginActivity extends AppCompatActivity {
                 loginAction();
             }
         });
+
+        if (isOnline()) {}
     }
 
     @Override
@@ -149,6 +153,11 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginAction() {
+
+        if (!isOnline()) {
+            return;
+        }
+
         progressDialog.show();
 
         String email = emailET.getText().toString();
@@ -174,6 +183,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void handleDatabaseUser(FirebaseUser user) {
+
+        if (!isOnline()) {
+            return;
+        }
 
         final DatabaseReference database = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
         database.addValueEventListener(new ValueEventListener() {
@@ -231,5 +244,47 @@ public class LoginActivity extends AppCompatActivity {
         hintTitleView.setText(title);
         hintMessageView.setText(message);
         hintAlertDialog.show();
+    }
+
+    private boolean isOnline() {
+
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+
+            authentication.removeAuthStateListener(authListener);
+
+            final AlertDialog hintAlertDialog;
+
+            LayoutInflater inflater = this.getLayoutInflater();
+            final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(this);
+            final View hintAlertView = inflater.inflate(R.layout.hint, null);
+            TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+            hintTitleView.setText("Achtung");
+
+            TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+            hintMessageView.setText("Keine Verbindung zum Internet. Bitte überprüfe deine Internetverbindung und versuche es erneut.");
+            final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+            dialogHintBuilder.setView(hintAlertView);
+            hintAlertDialog = dialogHintBuilder.create();
+
+            hintButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(getIntent());
+                    hintAlertDialog.dismiss();
+                }
+            });
+
+            hintAlertDialog.show();
+
+            return false;
+        }
     }
 }

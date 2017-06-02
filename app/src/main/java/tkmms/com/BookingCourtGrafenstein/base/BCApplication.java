@@ -1,9 +1,23 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Handler;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import tkmms.com.BookingCourtGrafenstein.R;
+import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
+import tkmms.com.BookingCourtGrafenstein.member.BookCourtActivity;
 
 /**
  * Created by tkrainz on 16/05/2017.
@@ -39,6 +53,7 @@ public class BCApplication extends Application {
 
     /**
      * Returns the application context.
+     *
      * @return The application context.
      */
     public static Context getContext() {
@@ -66,11 +81,6 @@ public class BCApplication extends Application {
             @Override
             public void onCourtClosedSuccedded(long isCourtClosed) {
                 courtClosed = isCourtClosed;
-            }
-
-            @Override
-            public void onCourtClosedFailed() {
-
             }
         });
 

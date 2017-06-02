@@ -1,4 +1,4 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.admin.bookings;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+
+import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 29/05/2017.

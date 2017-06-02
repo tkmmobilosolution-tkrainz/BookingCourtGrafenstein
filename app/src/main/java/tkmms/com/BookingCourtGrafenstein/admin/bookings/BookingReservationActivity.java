@@ -1,15 +1,23 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.admin.bookings;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,6 +28,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import tkmms.com.BookingCourtGrafenstein.base.BCReservation;
+import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 27/05/2017.
@@ -48,7 +60,9 @@ public class BookingReservationActivity extends AppCompatActivity {
 
         getSupportActionBar().setTitle("Termin Details");
 
-        loadReservationList();
+        if (isOnline()) {
+            loadReservationList();
+        }
 
         listener = new Listener() {
             @Override
@@ -57,6 +71,11 @@ public class BookingReservationActivity extends AppCompatActivity {
                 BookingReservationAdapter adapter = new BookingReservationAdapter(reservations, ids);
 
                 if (!BookingReservationActivity.this.isDestroyed()) {
+
+                    if (!isOnline()) {
+                        return;
+                    }
+
                     listview.setAdapter(adapter);
                     progressDialog.dismiss();
                 }
@@ -120,6 +139,45 @@ public class BookingReservationActivity extends AppCompatActivity {
 
     private interface Listener {
         void listLoadedSuccess();
+    }
+
+    private boolean isOnline() {
+
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            final AlertDialog hintAlertDialog;
+
+            LayoutInflater inflater = this.getLayoutInflater();
+            final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(this);
+            final View hintAlertView = inflater.inflate(R.layout.hint, null);
+            TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+            hintTitleView.setText("Achtung");
+
+            TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+            hintMessageView.setText("Keine Verbindung zum Internet. Bitte überprüfe deine Internetverbindung und versuche es erneut.");
+            final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+            dialogHintBuilder.setView(hintAlertView);
+            hintAlertDialog = dialogHintBuilder.create();
+
+            hintButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(getIntent());
+                    hintAlertDialog.dismiss();
+                }
+            });
+
+            hintAlertDialog.show();
+
+            return false;
+        }
     }
 }
 

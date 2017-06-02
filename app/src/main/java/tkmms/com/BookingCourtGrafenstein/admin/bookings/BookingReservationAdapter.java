@@ -1,6 +1,5 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.admin.bookings;
 
-import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
@@ -13,6 +12,9 @@ import android.widget.TextView;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+
+import tkmms.com.BookingCourtGrafenstein.base.BCReservation;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 29/05/2017.

@@ -1,7 +1,10 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.admin.bookings;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -32,18 +35,23 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
+import tkmms.com.BookingCourtGrafenstein.base.BCReservation;
+import tkmms.com.BookingCourtGrafenstein.R;
+
 /**
- * Created by tkrainz on 29/05/2017.
+ * Created by tkrainz on 16/05/2017.
  */
 
-public class AddSingleEventActivity extends AppCompatActivity {
+public class AddTrainingActivity extends AppCompatActivity {
 
+    private Spinner weekdaySpinner;
     private Spinner courtSpinner;
 
     private EditText trainingName;
 
     private Button addTrainingButton;
-    private Button dateButton;
+    private Button beginDateButton;
+    private Button endDateButton;
     private Button beginTimeButton;
     private Button endTimeButton;
 
@@ -52,9 +60,11 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
     private String name;
     private String beginDateString;
+    private String endDateString;
     private String beginTimeString;
     private String endTimeString;
 
+    private AlertDialog calendarEndAlertDialog;
     private AlertDialog calendarBeginAlertDialog;
     private AlertDialog beginTimeAlertDialog;
     private AlertDialog endTimeAlertDialog;
@@ -64,33 +74,45 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog = null;
 
-    private static final String START_DATUM_BUTTON_TITLE = "Datum wählen";
+    private static final String START_DATUM_BUTTON_TITLE = "Start Datum wählen";
+    private static final String END_DATE_BUTTON_TITLE = "End Datum wählen";
     private static final String END_TIME_BUTTON_TITLE = "Ende wählen";
     private static final String BEGIN_TIME_BUTTON_TITLE = "Begin wählen";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_single_event);
+        setContentView(R.layout.activity_add_training);
 
-        getSupportActionBar().setTitle("Einzeltermin hinzufügen");
-
+        getSupportActionBar().setTitle("Wöchentlichen Termin hinzufügen");
+        
+        initWeekdaySpinner();
         initCourtSpinner();
 
-        trainingName = (EditText) findViewById(R.id.et_single_training_name);
+        trainingName = (EditText) findViewById(R.id.et_training_name);
         trainingName.setImeOptions(EditorInfo.IME_ACTION_DONE);
 
-        dateButton = (Button) findViewById(R.id.btn_single_date);
-        dateButton.setText(START_DATUM_BUTTON_TITLE);
-        dateButton.setOnClickListener(new View.OnClickListener() {
+        beginDateButton = (Button) findViewById(R.id.btn_choose_begin_date);
+        beginDateButton.setText(START_DATUM_BUTTON_TITLE);
+        beginDateButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 initBeginDateAlertDialog();
                 calendarBeginAlertDialog.show();
             }
         });
+        
+        endDateButton = (Button) findViewById(R.id.btn_choose_end_date);
+        endDateButton.setText(END_DATE_BUTTON_TITLE);
+        endDateButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initEndDateAlertDialog();
+                calendarEndAlertDialog.show();
+            }
+        });
 
-        beginTimeButton = (Button) findViewById(R.id.btn_single_beginTime);
+        beginTimeButton = (Button) findViewById(R.id.btn_beginTime);
         beginTimeButton.setText(BEGIN_TIME_BUTTON_TITLE);
         beginTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,7 +122,7 @@ public class AddSingleEventActivity extends AppCompatActivity {
             }
         });
 
-        endTimeButton = (Button) findViewById(R.id.btn_single_endTime);
+        endTimeButton = (Button) findViewById(R.id.btn_endTime);
         endTimeButton.setText(END_TIME_BUTTON_TITLE);
         endTimeButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,13 +132,14 @@ public class AddSingleEventActivity extends AppCompatActivity {
             }
         });
 
-        addTrainingButton = (Button) findViewById(R.id.btn_add_single_training);
+        addTrainingButton = (Button) findViewById(R.id.btn_add_training);
         addTrainingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 reservationList = new ArrayList<BCReservation>();
 
                 if (checkInputData()) {
+                    getListForWeekday(weekdayInt, endDateString);
                     sendReservationsToFirebase();
                 }
             }
@@ -127,11 +150,13 @@ public class AddSingleEventActivity extends AppCompatActivity {
         progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         progressDialog.setMessage("Reserviere");
 
+        if (isOnline()) {}
+
     }
 
     private void initBeginDateAlertDialog() {
         LayoutInflater inflater = this.getLayoutInflater();
-        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddSingleEventActivity.this);
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddTrainingActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.calendar_alert_view, null);
 
         long startDate = 0;
@@ -155,20 +180,9 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
                 int correctMonth = month + 1;
                 beginDateString = String.format("%02d", dayOfMonth) + "." + String.format("%02d", correctMonth) + "." + year;
-                dateButton.setText(beginDateString);
-                SimpleDateFormat endDateFormat = new SimpleDateFormat("dd.MM.yyyy");
-                Date startDate;
-                try {
-                    startDate = endDateFormat.parse(beginDateString);
-                    Calendar cal = Calendar.getInstance();
-                    cal.setTime(startDate);
-
-                    weekdayInt = cal.get(Calendar.DAY_OF_WEEK);
-
-                } catch (ParseException e) {
-
-                }
-
+                beginDateButton.setText(beginDateString);
+                endDateButton.setText(END_DATE_BUTTON_TITLE);
+                endDateString = "";
                 calendarBeginAlertDialog.dismiss();
             }
         });
@@ -177,11 +191,52 @@ public class AddSingleEventActivity extends AppCompatActivity {
         calendarBeginAlertDialog = dialogHintBuilder.create();
     }
 
+    private void initEndDateAlertDialog() {
+        LayoutInflater inflater = this.getLayoutInflater();
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddTrainingActivity.this);
+        final View hintAlertView = inflater.inflate(R.layout.calendar_alert_view, null);
+
+        long endDate = 0;
+
+        if (beginDateString != null) {
+            SimpleDateFormat endDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+            try {
+                Calendar c = Calendar.getInstance();
+                c.setTime(endDateFormat.parse(beginDateString));
+                c.add(Calendar.DAY_OF_YEAR, 7);
+                endDate = c.getTime().getTime();
+            } catch (ParseException e) {
+
+            }
+        } else {
+            Calendar cal = Calendar.getInstance();
+            cal.add(Calendar.DAY_OF_YEAR, 7);
+            endDate = cal.getTime().getTime();
+        }
+
+        CalendarView calendarView = (CalendarView) hintAlertView.findViewById(R.id.calendarView2);
+        calendarView.setMinDate(endDate);
+        calendarView.setDate(endDate);
+        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+            @Override
+            public void onSelectedDayChange(@NonNull CalendarView view, int year, int month, int dayOfMonth) {
+
+                int correctMonth = month + 1;
+                endDateString = String.format("%02d", dayOfMonth) + "." + String.format("%02d", correctMonth) + "." + year;
+                endDateButton.setText(endDateString);
+                calendarEndAlertDialog.dismiss();
+            }
+        });
+
+        dialogHintBuilder.setView(hintAlertView);
+        calendarEndAlertDialog = dialogHintBuilder.create();
+    }
+
     private void initBeginTimeAlertDialog() {
         final ArrayList<String> beginTimes = generateTimes("6:00", true);
 
         LayoutInflater inflater = this.getLayoutInflater();
-        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddSingleEventActivity.this);
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddTrainingActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.time_alert, null);
         ListView listView = (ListView) hintAlertView.findViewById(R.id.time_list_view);
         ArrayAdapter beginTimeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, beginTimes);
@@ -205,7 +260,7 @@ public class AddSingleEventActivity extends AppCompatActivity {
         final ArrayList<String> endTimes = generateTimes(beginTimeButton.getText().toString(), false);
 
         LayoutInflater inflater = this.getLayoutInflater();
-        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddSingleEventActivity.this);
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddTrainingActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.time_alert, null);
         ListView listView = (ListView) hintAlertView.findViewById(R.id.time_list_view);
         ArrayAdapter endTimeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, endTimes);
@@ -224,8 +279,49 @@ public class AddSingleEventActivity extends AppCompatActivity {
         endTimeAlertDialog = dialogHintBuilder.create();
     }
 
+    private void initWeekdaySpinner() {
+        weekdaySpinner = (Spinner) findViewById(R.id.weekdaySpinner);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.weekdays, android.R.layout.simple_list_item_1);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        weekdaySpinner.setAdapter(adapter);
+        weekdaySpinner.setSelection(0);
+        weekdaySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position) {
+                    case 0:
+                        weekdayInt = 2;
+                        break;
+                    case 1:
+                        weekdayInt = 3;
+                        break;
+                    case 2:
+                        weekdayInt = 4;
+                        break;
+                    case 3:
+                        weekdayInt = 5;
+                        break;
+                    case 4:
+                        weekdayInt = 6;
+                        break;
+                    case 5:
+                        weekdayInt = 7;
+                        break;
+                    case 6:
+                        weekdayInt = 1;
+                        break;
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                weekdayInt = 2;
+            }
+        });
+    }
+
     private void initCourtSpinner() {
-        courtSpinner = (Spinner) findViewById(R.id.courtSpinner_single);
+        courtSpinner = (Spinner) findViewById(R.id.courtSpinner);
         ArrayAdapter<CharSequence> courtAdapter = ArrayAdapter.createFromResource(this, R.array.courts, android.R.layout.simple_spinner_item);
         courtAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         courtSpinner.setAdapter(courtAdapter);
@@ -253,19 +349,48 @@ public class AddSingleEventActivity extends AppCompatActivity {
         });
     }
 
+    private void getListForWeekday(int day, String lastDayString) {
+
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat endDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+        try {
+            cal.setTime(endDateFormat.parse(beginDateString));
+        } catch (ParseException e) {
+
+        }
+
+        String currentDayString = beginDateString;
+
+        ArrayList<String> dateArray = new ArrayList<>();
+        while (!currentDayString.equals(lastDayString)) {
+            if (cal.get(cal.DAY_OF_WEEK) == day) {
+                dateArray.add(new SimpleDateFormat("dd.MM.yyyy").format(new Date(cal.getTime().getTime())));
+            }
+            cal.add(Calendar.DAY_OF_YEAR, 1);
+            currentDayString = new SimpleDateFormat("dd.MM.yyyy").format(new Date(cal.getTime().getTime()));
+        }
+
+        for (int res = 0; res < dateArray.size(); res++) {
+            String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
+            BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, dateArray.get(res), court, 1, name, reservationsUuid);
+            reservationList.add(reservation);
+        }
+    }
+
     private void sendReservationsToFirebase() {
-        String reservationsUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-RES-" + UUID.randomUUID().toString();
-        BCReservation reservation = new BCReservation(FirebaseAuth.getInstance().getCurrentUser().getUid(), beginTimeString, endTimeString, beginDateString, court, 1, name, reservationsUuid);
-        reservationList.add(reservation);
+
+        if (!isOnline()) {
+            return;
+        }
 
         final ArrayList<String> reservationUuids = new ArrayList<>();
 
         for (int i = 0; i < reservationList.size(); i++) {
-            reservationUuids.add(reservationsUuid);
+            reservationUuids.add(reservationList.get(i).getId());
 
             FirebaseDatabase.getInstance().getReference()
                     .child("reservations")
-                    .child(reservationsUuid)
+                    .child(reservationList.get(i).getId())
                     .setValue(reservationList.get(i).getHashMap());
         }
 
@@ -281,12 +406,16 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
     private void sendBooking(ArrayList<String> reservationList) {
 
+        if (!isOnline()) {
+            return;
+        }
+
         String bookingUuid = FirebaseAuth.getInstance().getCurrentUser().getUid() + "-BOOK-" + UUID.randomUUID().toString();
 
         HashMap<String, Object> bookingMap = new HashMap<>();
         bookingMap.put("weekday", weekdayInt);
         bookingMap.put("beginDate", beginDateString);
-        bookingMap.put("endDate", beginDateString);
+        bookingMap.put("endDate", endDateString);
         bookingMap.put("beginTime", beginTimeString);
         bookingMap.put("endTime", endTimeString);
         bookingMap.put("court", court);
@@ -304,15 +433,14 @@ public class AddSingleEventActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                if (!AddSingleEventActivity.this.isDestroyed()) {
+                if (!AddTrainingActivity.this.isDestroyed()) {
                     progressDialog.dismiss();
                     Toast.makeText(getApplicationContext(), "Platz wurde reserviert", Toast.LENGTH_LONG).show();
                 }
 
-                Intent intent = new Intent(AddSingleEventActivity.this, BookingOverviewActivity.class);
+                Intent intent = new Intent(AddTrainingActivity.this, BookingOverviewActivity.class);
                 startActivity(intent);
                 finish();
-
             }
         }, 1000);
     }
@@ -352,7 +480,8 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
     private boolean checkInputData() {
 
-        String beginDateButtonTitle = dateButton.getText().toString();
+        String beginDateButtonTitle = beginDateButton.getText().toString();
+        String dateButtonTitle = endDateButton.getText().toString();
         String beginTimeButtonTitle = beginTimeButton.getText().toString();
         String endTimeButtonTitle = endTimeButton.getText().toString();
         name = trainingName.getText().toString();
@@ -363,7 +492,11 @@ public class AddSingleEventActivity extends AppCompatActivity {
             hintAlertDialog.show();
             return false;
         } else if (beginDateButtonTitle == START_DATUM_BUTTON_TITLE) {
-            initHintAlert("Bitte wähle ein Datum aus!");
+            initHintAlert("Bitte wähle ein Start Datum aus!");
+            hintAlertDialog.show();
+            return false;
+        } else if (dateButtonTitle == END_DATE_BUTTON_TITLE) {
+            initHintAlert("Bitte wähle ein End Datum aus!");
             hintAlertDialog.show();
             return false;
         } else if (beginTimeButtonTitle == BEGIN_TIME_BUTTON_TITLE) {
@@ -382,7 +515,7 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
     private void initHintAlert(String message) {
         LayoutInflater inflater = this.getLayoutInflater();
-        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddSingleEventActivity.this);
+        final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(AddTrainingActivity.this);
         final View hintAlertView = inflater.inflate(R.layout.hint, null);
         TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
         hintTitleView.setText("Achtung");
@@ -400,5 +533,45 @@ public class AddSingleEventActivity extends AppCompatActivity {
 
         dialogHintBuilder.setView(hintAlertView);
         hintAlertDialog = dialogHintBuilder.create();
+    }
+
+    private boolean isOnline() {
+
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+
+            final AlertDialog hintAlertDialog;
+
+            LayoutInflater inflater = this.getLayoutInflater();
+            final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(this);
+            final View hintAlertView = inflater.inflate(R.layout.hint, null);
+            TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+            hintTitleView.setText("Achtung");
+
+            TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+            hintMessageView.setText("Keine Verbindung zum Internet. Bitte überprüfe deine Internetverbindung und versuche es erneut.");
+            final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+            dialogHintBuilder.setView(hintAlertView);
+            hintAlertDialog = dialogHintBuilder.create();
+
+            hintButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(getIntent());
+                    hintAlertDialog.dismiss();
+                }
+            });
+
+            hintAlertDialog.show();
+
+            return false;
+        }
     }
 }

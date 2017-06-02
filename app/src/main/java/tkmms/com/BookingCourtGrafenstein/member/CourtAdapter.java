@@ -1,4 +1,4 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.member;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,10 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+
+import tkmms.com.BookingCourtGrafenstein.base.BCButton;
+import tkmms.com.BookingCourtGrafenstein.base.BCReservation;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 03/05/2017.

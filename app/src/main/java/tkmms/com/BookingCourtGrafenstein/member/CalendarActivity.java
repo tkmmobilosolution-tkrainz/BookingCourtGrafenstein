@@ -1,4 +1,4 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.member;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -23,6 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.Calendar;
+
+import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 03/05/2017.

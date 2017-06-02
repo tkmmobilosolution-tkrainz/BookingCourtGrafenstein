@@ -1,17 +1,16 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.admin.member;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.PersistableBundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -33,7 +32,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-import java.util.Objects;
+
+import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 08/05/2017.
@@ -122,6 +123,8 @@ public class AddMemberActivity extends AppCompatActivity {
                 }
             }
         });
+
+        if (isOnline()) {}
     }
 
     private void createUserFailed(Task<AuthResult> task) {
@@ -135,6 +138,11 @@ public class AddMemberActivity extends AppCompatActivity {
     }
 
     private void registerMemeberWithEmial() {
+
+        if (!isOnline()) {
+            return;
+        }
+
         authentication.createUserWithEmailAndPassword(email, "pwd4test").addOnCompleteListener(AddMemberActivity.this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -200,5 +208,44 @@ public class AddMemberActivity extends AppCompatActivity {
         hintTitleView.setText(title);
         hintMessageView.setText(message);
         hintAlertDialog.show();
+    }
+
+    private boolean isOnline() {
+
+        ConnectivityManager cm =
+                (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            final AlertDialog hintAlertDialog;
+
+            LayoutInflater inflater = this.getLayoutInflater();
+            final AlertDialog.Builder dialogHintBuilder = new AlertDialog.Builder(this);
+            final View hintAlertView = inflater.inflate(R.layout.hint, null);
+            TextView hintTitleView = (TextView) hintAlertView.findViewById(R.id.hintTitleTextView);
+            hintTitleView.setText("Achtung");
+
+            TextView hintMessageView = (TextView) hintAlertView.findViewById(R.id.hintMessageTextView);
+            hintMessageView.setText("Keine Verbindung zum Internet. Bitte überprüfe deine Internetverbindung und versuche es erneut.");
+            final Button hintButton = (Button) hintAlertView.findViewById(R.id.hintButton);
+
+            dialogHintBuilder.setView(hintAlertView);
+            hintAlertDialog = dialogHintBuilder.create();
+
+            hintButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                    startActivity(getIntent());
+                    hintAlertDialog.dismiss();
+                }
+            });
+
+            hintAlertDialog.show();
+
+            return false;
+        }
     }
 }

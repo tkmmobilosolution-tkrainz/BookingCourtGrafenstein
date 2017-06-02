@@ -3,7 +3,7 @@
     package="tkmms.com.BookingCourtGrafenstein">
 
     <application
-        android:name=".BCApplication"
+        android:name=".base.BCApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".authorization.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,62 +20,62 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".LoginActivity"
+        <activity android:name=".authorization.LoginActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".FirstLoginActivity"
+        <activity android:name=".member.FirstLoginActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".CalendarActivity"
+        <activity android:name=".member.CalendarActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".BookCourtActivity"
+        <activity android:name=".member.BookCourtActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AddMemberActivity"
+        <activity android:name=".admin.member.AddMemberActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AdminOverviewActivity"
+        <activity android:name=".admin.overview.AdminOverviewActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".CloseCourtActivity"
+        <activity android:name=".admin.CloseCourtActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".MemberOverviewActivity"
+        <activity android:name=".admin.member.MemberOverviewActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".MemberDetailActivity"
+        <activity android:name=".admin.member.MemberDetailActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".ChooseCloseActivity"
+        <activity android:name=".admin.ChooseCloseActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".AddTrainingActivity"
+        <activity android:name=".admin.bookings.AddTrainingActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".BookingOverviewActivity"
+        <activity android:name=".admin.bookings.BookingOverviewActivity"
             android:screenOrientation="portrait">
         </activity>
 
-        <activity android:name=".BookingReservationActivity"
+        <activity android:name=".admin.bookings.BookingReservationActivity"
             android:screenOrientation="portrait">
         </activity>
         
-        <activity android:name=".AddSingleEventActivity"
+        <activity android:name=".admin.bookings.AddSingleEventActivity"
             android:screenOrientation="portrait"></activity>
         
-        <activity android:name=".ChooseBookingActivity"
+        <activity android:name=".admin.bookings.ChooseBookingActivity"
             android:screenOrientation="portrait"></activity>
 
     </application>

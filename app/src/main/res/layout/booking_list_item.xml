@@ -31,7 +31,7 @@
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt1"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -45,7 +45,7 @@
                     android:textSize="12sp"
                     android:text="1"/>
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt2"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -59,7 +59,7 @@
                     android:maxLength="8"
                     android:text="Deutschmann" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt3"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -73,7 +73,7 @@
                     android:maxLength="8"
                     android:text="Training" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt4"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -87,7 +87,7 @@
                     android:visibility="visible"
                     android:text="4" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt5"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -110,7 +110,7 @@
                 android:orientation="horizontal"
                 android:baselineAligned="false">
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt6"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -124,7 +124,7 @@
                     android:maxLength="8"
                     android:text="6" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt7"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -138,7 +138,7 @@
                     android:maxLength="8"
                     android:text="7" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt8"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -152,7 +152,7 @@
                     android:maxLength="8"
                     android:text="TESTTEST" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt9"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
@@ -166,7 +166,7 @@
                     android:maxLength="8"
                     android:text="9" />
 
-                <tkmms.com.BookingCourtGrafenstein.BCButton
+                <tkmms.com.BookingCourtGrafenstein.base.BCButton
                     android:id="@+id/btnCourt10"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"

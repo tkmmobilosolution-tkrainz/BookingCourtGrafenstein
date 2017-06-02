@@ -20,6 +20,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="02b03a5b-90f6-4f73-8e7c-effe23a808bd" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddMemberActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/AddMemberActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddSingleEventActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/AddSingleEventActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddTrainingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/AddTrainingActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AdminOverviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/overview/AdminOverviewActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCApplication.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCApplication.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCBooking.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCBooking.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCButton.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCButton.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCGlobals.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCGlobals.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCReservation.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCReservation.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCUser.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCUser.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/BookCourtActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingListAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingOverviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingOverviewActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingReservationActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingReservationAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CalendarActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/CalendarActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/ChooseBookingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/ChooseBookingActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/ChooseCloseActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/ChooseCloseActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CloseCourtActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/CloseCourtActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CourtAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/CourtAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CustomComparator.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/CustomComparator.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/DatabaseHelper.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/DatabaseHelper.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/FirstLoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/FirstLoginActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/LoginActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/MainActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberDetailActivity.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberListAdapter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberOverviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberOverviewActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" />
@@ -29,26 +57,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/3.3/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddMemberActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddMemberActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddSingleEventActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddSingleEventActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddTrainingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddTrainingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AdminOverviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AdminOverviewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingOverviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingOverviewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CalendarActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CalendarActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/ChooseBookingActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/ChooseBookingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CourtAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CourtAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/FirstLoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/FirstLoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/LoginActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/LoginActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberDetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberDetailActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberOverviewActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberOverviewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_training.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_add_training.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/reservation_alert.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/reservation_alert.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_startup.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_startup.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/booking_list_item.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/booking_list_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <ignored path="BookingCourtGrafenstein.iws" />
@@ -83,32 +93,117 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BookingListAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java">
+      <file leaf-file-name="CalendarActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/CalendarActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+            <state relative-caret-position="525">
+              <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CourtAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CourtAdapter.java">
+      <file leaf-file-name="AddMemberActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/AddMemberActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="417" column="16" selection-start-line="417" selection-start-column="16" selection-end-line="417" selection-end-column="16" />
+            <state relative-caret-position="-959">
+              <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+              <folding>
+                <element signature="e#5894#7200#0" expanded="true" />
+                <element signature="e#7199#7200#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2155">
+              <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BookCourtActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java">
+      <file leaf-file-name="BookingOverviewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingOverviewActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="85" column="88" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
+            <state relative-caret-position="660">
+              <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BookCourtActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/BookCourtActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="82">
+              <caret line="208" column="9" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
+              <folding>
+                <element signature="e#19073#19330#0" expanded="true" />
+                <element signature="e#19329#19330#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DatabaseHelper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/DatabaseHelper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="709">
+              <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BCApplication.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="292">
+              <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+              <folding>
+                <element signature="e#1839#2049#0" expanded="true" />
+                <element signature="e#2048#2049#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberDetailActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberDetailActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberOverviewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberOverviewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5">
+              <caret line="156" column="4" selection-start-line="156" selection-start-column="4" selection-end-line="193" selection-end-column="5" />
+              <folding>
+                <element signature="e#1376#1384#0" expanded="true" />
+                <element signature="e#1435#1443#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AdminOverviewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/overview/AdminOverviewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+              <folding>
+                <element signature="e#4711#5134#0" expanded="true" />
+                <element signature="e#5133#5134#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -2108,18 +2203,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_choose_close.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_close_court.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_first_login.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/hint.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_calendar.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_member_overview.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CustomComparator.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCUser.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberListAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/member_list_item.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_add_member.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_member_detail.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/DatabaseHelper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCGlobals.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCApplication.java" />
@@ -2150,7 +2233,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberOverviewActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/reservation_alert.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddMemberActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AdminOverviewActivity.java" />
@@ -2159,6 +2241,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddSingleEventActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CourtAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/AddSingleEventActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/AddTrainingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingOverviewActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingReservationActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/AddMemberActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberOverviewActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/overview/AdminOverviewActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/BookCourtActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/DatabaseHelper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCApplication.java" />
       </list>
     </option>
   </component>
@@ -2381,6 +2476,188 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="overview" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="BookingCourtGrafenstein" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bookings" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2757,7 +3034,7 @@
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32590315" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17931035" sideWeight="0.52040815" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2770,8 +3047,9 @@
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29129887" sideWeight="0.47959185" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29129887" sideWeight="0.47959185" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32711306" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2784,7 +3062,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32820907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2792,15 +3069,15 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17931035" sideWeight="0.52040815" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24673328" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24588364" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26979247" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3852909" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32590315" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32491767" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -2810,9 +3087,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18347895" sideWeight="0.47959185" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32821077" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29129887" sideWeight="0.47959185" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="SonarLint" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930845" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32820907" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962668" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
@@ -2833,79 +3110,45 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/FirstLoginActivity.java</url>
-          <line>44</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/FirstLoginActivity.java</url>
+          <line>45</line>
           <properties />
           <option name="timeStamp" value="23" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/FirstLoginActivity.java</url>
-          <line>47</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/FirstLoginActivity.java</url>
+          <line>48</line>
           <properties />
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java</url>
-          <line>98</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingListAdapter.java</url>
+          <line>101</line>
           <properties />
           <option name="timeStamp" value="176" />
         </line-breakpoint>
         <line-breakpoint type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java</url>
-          <line>27</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingListAdapter.java</url>
+          <line>30</line>
           <properties />
           <option name="timeStamp" value="178" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java</url>
-          <properties />
-          <option name="timeStamp" value="279" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java</url>
-          <line>368</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/BookCourtActivity.java</url>
+          <line>401</line>
           <properties />
           <option name="timeStamp" value="314" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java</url>
-          <line>173</line>
-          <properties />
-          <option name="timeStamp" value="315" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java</url>
-          <line>82</line>
-          <properties />
-          <option name="timeStamp" value="316" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java</url>
-          <line>184</line>
-          <properties />
-          <option name="timeStamp" value="317" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="319" />
+      <option name="time" value="320" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/time_alert.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="39" selection-start-line="6" selection-start-column="39" selection-end-line="6" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCUser.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
@@ -3012,7 +3255,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCBooking.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCBooking.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="808">
           <caret line="92" column="31" selection-start-line="92" selection-start-column="31" selection-end-line="92" selection-end-column="31" />
@@ -3074,17 +3317,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
-          <folding>
-            <element signature="e#671#672#0" expanded="false" />
-            <element signature="e#712#713#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_booking.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -3096,7 +3328,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCButton.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
           <caret line="25" column="75" selection-start-line="25" selection-start-column="75" selection-end-line="25" selection-end-column="75" />
@@ -3104,30 +3336,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/DatabaseHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="724">
-          <caret line="74" column="28" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCReservation.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCReservation.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="444">
           <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding>
-            <element signature="e#1859#1860#0" expanded="true" />
-            <element signature="e#1899#1900#0" expanded="true" />
-            <element signature="e#1928#1929#0" expanded="true" />
-            <element signature="e#1953#1954#0" expanded="true" />
-            <element signature="e#1989#1990#0" expanded="true" />
-            <element signature="e#2017#2018#0" expanded="true" />
+            <element signature="e#1864#1865#0" expanded="true" />
+            <element signature="e#1904#1905#0" expanded="true" />
+            <element signature="e#1933#1934#0" expanded="true" />
+            <element signature="e#1958#1959#0" expanded="true" />
+            <element signature="e#1994#1995#0" expanded="true" />
+            <element signature="e#2022#2023#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BCGlobals.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCGlobals.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="26" column="26" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
@@ -3168,18 +3392,18 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingReservationAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="702">
           <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
           <folding>
-            <element signature="e#2512#3103#0" expanded="true" />
-            <element signature="e#3102#3103#0" expanded="true" />
+            <element signature="e#2602#3193#0" expanded="true" />
+            <element signature="e#3192#3193#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/ChooseCloseActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/ChooseCloseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
@@ -3187,7 +3411,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CloseCourtActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/CloseCourtActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
@@ -3195,7 +3419,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="615">
           <caret line="55" column="27" selection-start-line="44" selection-start-column="8" selection-end-line="55" selection-end-column="27" />
@@ -3203,54 +3427,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CalendarActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/FirstLoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/FirstLoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="26" column="27" selection-start-line="26" selection-start-column="27" selection-end-line="26" selection-end-column="27" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/LoginActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="54" column="29" selection-start-line="54" selection-start-column="29" selection-end-line="54" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/MemberOverviewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-587">
-          <caret line="52" column="27" selection-start-line="52" selection-start-column="27" selection-end-line="52" selection-end-column="27" />
-          <folding>
-            <element signature="e#1313#1321#0" expanded="true" />
-            <element signature="e#1372#1380#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3273,111 +3454,191 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-25/android/app/Activity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15944">
+          <caret line="5213" column="16" selection-start-line="5213" selection-start-column="16" selection-end-line="5213" selection-end-column="16" />
+          <folding>
+            <element signature="e#219865#219866#0" expanded="false" />
+            <element signature="e#219897#219898#0" expanded="false" />
+            <element signature="e#222668#222669#0" expanded="false" />
+            <element signature="e#222722#222723#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/CourtAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="421" column="16" selection-start-line="421" selection-start-column="16" selection-end-line="421" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="470">
-          <caret line="38" column="51" selection-start-line="38" selection-start-column="51" selection-end-line="38" selection-end-column="51" />
-          <folding>
-            <element signature="e#313#331#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="665">
+          <caret line="77" column="47" selection-start-line="77" selection-start-column="47" selection-end-line="77" selection-end-column="47" />
+          <folding />
         </state>
       </provider>
       <provider editor-type-id="android-manifest">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddMemberActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="162" column="36" selection-start-line="162" selection-start-column="36" selection-end-line="162" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingReservationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="52" column="35" selection-start-line="52" selection-start-column="35" selection-end-line="52" selection-end-column="35" />
-          <folding>
-            <element signature="e#2168#2169#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingOverviewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/ChooseBookingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddTrainingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="426" column="25" selection-start-line="426" selection-start-column="25" selection-end-line="426" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AdminOverviewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="121" column="0" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/AddSingleEventActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="313" column="18" selection-start-line="313" selection-start-column="18" selection-end-line="313" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Library/Android/sdk/sources/android-25/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15944">
-          <caret line="5213" column="16" selection-start-line="5213" selection-start-column="16" selection-end-line="5213" selection-end-column="16" />
-          <folding>
-            <element signature="e#219865#219866#0" expanded="true" />
-            <element signature="e#219897#219898#0" expanded="true" />
-            <element signature="e#222668#222669#0" expanded="true" />
-            <element signature="e#222722#222723#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookingListAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingListAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="52">
-          <caret line="71" column="22" selection-start-line="71" selection-start-column="22" selection-end-line="71" selection-end-column="22" />
+          <caret line="74" column="22" selection-start-line="74" selection-start-column="22" selection-end-line="74" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/CourtAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="417" column="16" selection-start-line="417" selection-start-column="16" selection-end-line="417" selection-end-column="16" />
+        <state relative-caret-position="244">
+          <caret line="105" column="4" selection-start-line="105" selection-start-column="4" selection-end-line="141" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/BookCourtActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/AddSingleEventActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="85" column="88" selection-start-line="85" selection-start-column="88" selection-end-line="85" selection-end-column="88" />
+        <state relative-caret-position="-1720">
+          <caret line="298" column="8" selection-start-line="298" selection-start-column="8" selection-end-line="298" selection-end-column="8" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/AddTrainingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="277" column="49" selection-start-line="277" selection-start-column="49" selection-end-line="277" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingReservationActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="77" column="20" selection-start-line="77" selection-start-column="20" selection-end-line="77" selection-end-column="20" />
+          <folding>
+            <element signature="e#2192#2766#0" expanded="true" />
+            <element signature="e#2765#2766#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/ChooseBookingActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="e#1300#1301#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/AddMemberActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-959">
+          <caret line="144" column="0" selection-start-line="144" selection-start-column="0" selection-end-line="144" selection-end-column="0" />
+          <folding>
+            <element signature="e#5894#7200#0" expanded="true" />
+            <element signature="e#7199#7200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/member/MemberOverviewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5">
+          <caret line="156" column="4" selection-start-line="156" selection-start-column="4" selection-end-line="193" selection-end-column="5" />
+          <folding>
+            <element signature="e#1376#1384#0" expanded="true" />
+            <element signature="e#1435#1443#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/overview/AdminOverviewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="171" column="0" selection-start-line="171" selection-start-column="0" selection-end-line="171" selection-end-column="0" />
+          <folding>
+            <element signature="e#4711#5134#0" expanded="true" />
+            <element signature="e#5133#5134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/authorization/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2155">
+          <caret line="102" column="26" selection-start-line="102" selection-start-column="26" selection-end-line="102" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/admin/bookings/BookingOverviewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="660">
+          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/BookCourtActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="82">
+          <caret line="208" column="9" selection-start-line="208" selection-start-column="9" selection-end-line="208" selection-end-column="9" />
+          <folding>
+            <element signature="e#19073#19330#0" expanded="true" />
+            <element signature="e#19329#19330#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/member/CalendarActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="74" column="28" selection-start-line="74" selection-start-column="28" selection-end-line="74" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/DatabaseHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="709">
+          <caret line="66" column="21" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/tkmms/com/BookingCourtGrafenstein/base/BCApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="92" column="21" selection-start-line="92" selection-start-column="21" selection-end-line="92" selection-end-column="21" />
+          <folding>
+            <element signature="e#1839#2049#0" expanded="true" />
+            <element signature="e#2048#2049#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

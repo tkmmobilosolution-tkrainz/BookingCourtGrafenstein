@@ -1,10 +1,12 @@
-package tkmms.com.BookingCourtGrafenstein;
+package tkmms.com.BookingCourtGrafenstein.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import tkmms.com.BookingCourtGrafenstein.R;
 
 /**
  * Created by tkrainz on 11/05/2017.
