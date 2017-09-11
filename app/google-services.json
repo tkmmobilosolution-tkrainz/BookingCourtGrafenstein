@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "387218558141",
+    "firebase_url": "https://bookingcourt-tsv-grafenstein.firebaseio.com",
+    "project_id": "bookingcourt-tsv-grafenstein",
+    "storage_bucket": "bookingcourt-tsv-grafenstein.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:387218558141:android:757fc04142eac252",
+        "android_client_info": {
+          "package_name": "tkmms.com.bookingcourt.grafenstein"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "387218558141-75tsmetlq3ghf80ob52guquivehr178f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA78KbuIr24fajdfMR1LBAN08CcOZDCJVw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

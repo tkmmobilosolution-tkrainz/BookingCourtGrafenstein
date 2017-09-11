@@ -8,4 +8,65 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="BCButtonGreen" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_green_dark</item>
+    </style>
+
+    <style name="BCButtonRed" parent="Widget.AppCompat.Button.Colored">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="colorButtonNormal">@android:color/holo_red_dark</item>
+    </style>
+
+    <style name="BCButtonBlue" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_blue_dark</item>
+    </style>
+
+    <style name="BCButtonOrange" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@android:color/holo_orange_dark</item>
+    </style>
+
+    <style name="BCButtonNormal" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="SwitchActive" parent="Theme.AppCompat.Light">
+        <item name="colorControlActivated">@color/bc_green</item>
+    </style>
+
+    <style name="TextViewTop" parent="@android:style/TextAppearance.Widget.TextView">
+        <item name="android:layout_marginTop">25dp</item>
+    </style>
+
+    <style name="CalendarStyle" parent="AppTheme">
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+    <style name="SpinnerTheme" parent="android:Theme.Holo.Dialog">
+        <item name="android:alertDialogStyle">@style/CustomAlertDialogStyle</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:indeterminateTint">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+
+
+    <style name="CustomAlertDialogStyle">
+        <item name="android:bottomBright">@android:color/transparent</item>
+        <item name="android:bottomDark">@android:color/transparent</item>
+        <item name="android:bottomMedium">@android:color/transparent</item>
+        <item name="android:centerBright">@android:color/transparent</item>
+        <item name="android:centerDark">@android:color/transparent</item>
+        <item name="android:centerMedium">@android:color/transparent</item>
+        <item name="android:fullBright">@android:color/transparent</item>
+        <item name="android:fullDark">@android:color/transparent</item>
+        <item name="android:topBright">@android:color/transparent</item>
+        <item name="android:topDark">@android:color/transparent</item>
+    </style>
+
+
 </resources>

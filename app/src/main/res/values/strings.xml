@@ -1,3 +1,41 @@
 <resources>
     <string name="app_name">BookingCourt</string>
+
+    <string-array name="weekdays">
+        <item>Montag</item>
+        <item>Dienstag</item>
+        <item>Mittwoch</item>
+        <item>Donnerstag</item>
+        <item>Freitag</item>
+        <item>Samsatg</item>
+        <item>Sonntag</item>
+    </string-array>
+
+    <string-array name="courts">
+        <item>Platz 1</item>
+        <item>Platz 2</item>
+        <item>Platz 3</item>
+    </string-array>
+
+    <string-array name="reservation1">
+        <item>0.5 Stunden</item>
+    </string-array>
+
+    <string-array name="reservation2">
+        <item>0.5 Stunden</item>
+        <item>1 Stunde</item>
+    </string-array>
+
+    <string-array name="reservation3">
+        <item>0.5 Stunden</item>
+        <item>1 Stunde</item>
+        <item>1.5 Stunden</item>
+    </string-array>
+
+    <string-array name="reservation4">
+        <item>0.5 Stunden</item>
+        <item>1 Stunde</item>
+        <item>1.5 Stunden</item>
+        <item>2 Stunden</item>
+    </string-array>
 </resources>
