@@ -42,8 +42,6 @@ import tkmms.com.BookingCourtGrafenstein.R;
 
 public class AddMemberActivity extends AppCompatActivity {
 
-    private FirebaseAuth authentication = FirebaseAuth.getInstance();
-    private FirebaseAuth.AuthStateListener authListener = null;
     private String email, firstName, lastName;
     private DatabaseReference database = FirebaseDatabase.getInstance().getReference();
     private long payment = 0;
@@ -94,16 +92,6 @@ public class AddMemberActivity extends AppCompatActivity {
             }
         });
 
-        authListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-
-                }
-            }
-        };
-
         Button addMemeberButton = (Button)findViewById(R.id.btn_add_member);
         addMemeberButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,7 +107,7 @@ public class AddMemberActivity extends AppCompatActivity {
                 } else if (firstName.length() <= 0 || lastName.length() <= 0) {
                     showHintAlertDialog("Hinweis", "Die Eingabe ist nicht vollständig. Bitte überprüfe alle Felder und versuche es dann erneut.");
                 } else {
-                    registerMemeberWithEmial();
+                    addMember();
                 }
             }
         });
@@ -127,7 +115,7 @@ public class AddMemberActivity extends AppCompatActivity {
         if (isOnline()) {}
     }
 
-    private void createUserFailed(Task<AuthResult> task) {
+    /** private void createUserFailed(Task<AuthResult> task) {
         progressDialog.dismiss();
         FirebaseAuthException exception = (FirebaseAuthException) task.getException();
         if (exception.getErrorCode().equals("ERROR_EMAIL_ALREADY_IN_USE")) {
@@ -135,9 +123,28 @@ public class AddMemberActivity extends AppCompatActivity {
         } else {
             showHintAlertDialog("Fehler", "Ein Fehler ist aufgetretten. Versuche es später noch einmal.");
         }
+    } **/
+
+    private void addMember() {
+
+        if (!isOnline()) {
+            return;
+        }
+
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("email", email);
+        map.put("firstname", firstName);
+        map.put("lastname", lastName);
+        map.put("admin", admin);
+        map.put("payment", payment);
+        database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(map);
+        database.child("valid_emails").child(email);
+
+        Toast.makeText(getApplicationContext(), "Mitglied wurde angelegt", Toast.LENGTH_LONG).show();
+        onBackPressed();
     }
 
-    private void registerMemeberWithEmial() {
+    /** private void registerMemeberWithEmial() {
 
         if (!isOnline()) {
             return;
@@ -172,7 +179,7 @@ public class AddMemberActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    } **/
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

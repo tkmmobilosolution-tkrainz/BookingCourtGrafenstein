@@ -11,6 +11,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -32,15 +33,12 @@ import tkmms.com.BookingCourtGrafenstein.admin.overview.AdminOverviewActivity;
 import tkmms.com.BookingCourtGrafenstein.base.BCGlobals;
 import tkmms.com.BookingCourtGrafenstein.base.BCUser;
 import tkmms.com.BookingCourtGrafenstein.member.CalendarActivity;
-import tkmms.com.BookingCourtGrafenstein.member.FirstLoginActivity;
 
 /**
  * Created by tkrainz on 03/05/2017.
  */
 
 public class LoginActivity extends AppCompatActivity {
-
-    private boolean isFirstUserLogin = false;
 
     FirebaseAuth authentication = FirebaseAuth.getInstance();
     FirebaseAuth.AuthStateListener authListener = null;
@@ -57,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Anmelden");
 
         Button loginButton = (Button)findViewById(R.id.btnLogin);
+        Button registerButton = (Button) findViewById(R.id.btnRegister);
 
         emailET = (EditText) findViewById(R.id.et_login_email);
         passwordET = (EditText) findViewById(R.id.et_login_password);
@@ -97,6 +96,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 loginAction();
+            }
+        });
+
+        registerButton.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -162,9 +169,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-
-        isFirstUserLogin = password.equals("pwd4test");
-
+        
         if (emailFormat(email) && passwordFormat(password)) {
             authentication.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -202,13 +207,8 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else {
 
-                        if (isFirstUserLogin) {
-                            Intent intent = new Intent(getApplicationContext(), FirstLoginActivity.class);
-                            startActivity(intent);
-                        } else {
-                            Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
-                            startActivity(intent);
-                        }
+                        Intent intent = new Intent(getApplicationContext(), CalendarActivity.class);
+                        startActivity(intent);
                     }
 
                     progressDialog.hide();
