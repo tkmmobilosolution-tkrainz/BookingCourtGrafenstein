@@ -33,6 +33,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
+import java.util.UUID;
 import tkmms.com.BookingCourtGrafenstein.authorization.LoginActivity;
 import tkmms.com.BookingCourtGrafenstein.R;
 
@@ -135,10 +136,10 @@ public class AddMemberActivity extends AppCompatActivity {
         map.put("email", email);
         map.put("firstname", firstName);
         map.put("lastname", lastName);
-        map.put("admin", admin);
+        map.put("admin", false);
         map.put("payment", payment);
-        database.child("users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(map);
-        database.child("valid_emails").child(email);
+        database.child("users").child(UUID.randomUUID().toString()).setValue(map);
+        database.child("validemails").child(UUID.randomUUID().toString()).setValue(email);
 
         Toast.makeText(getApplicationContext(), "Mitglied wurde angelegt", Toast.LENGTH_LONG).show();
         onBackPressed();

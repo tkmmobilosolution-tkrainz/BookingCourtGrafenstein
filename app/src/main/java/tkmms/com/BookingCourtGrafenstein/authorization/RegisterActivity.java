@@ -1,6 +1,7 @@
 package tkmms.com.BookingCourtGrafenstein.authorization;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -25,7 +26,14 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
 import tkmms.com.BookingCourtGrafenstein.R;
+import tkmms.com.BookingCourtGrafenstein.base.BCUser;
+import tkmms.com.BookingCourtGrafenstein.member.CalendarActivity;
 
 /**
  * Created by tkrainz on 03/05/2017.
@@ -37,12 +45,14 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView hintTitleView, hintMessageView;
     FirebaseAuth authentication = FirebaseAuth.getInstance();
     private EditText email, pwd, checkPwd;
+    ArrayList<String> emailList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first_login);
 
+        getValidEmails();
         getSupportActionBar().setTitle("Passwort ändern");
 
         email = (EditText) findViewById(R.id.et_email);
@@ -83,17 +93,25 @@ public class RegisterActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private boolean checkValidEmail(final String email) {
+    private void getValidEmails() {
 
-        final ArrayList<String> emailList = new ArrayList<>();
         final DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-        database.child("valid_emails").addListenerForSingleValueEvent(new ValueEventListener() {
+        database.child("validemails").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<String> emails = (ArrayList<String>) dataSnapshot.getValue();
+                Map<String, String> emailsMap = (Map<String, String>) dataSnapshot.getValue();
 
-                for (int i = 0; i < emails.size(); i++) {
-                    emailList.add(emails.get(i));
+                if (emailsMap != null) {
+
+                    TreeMap<String, String> treemap = new TreeMap<String, String>(emailsMap);
+
+                    Iterator basicIterator = treemap.entrySet().iterator();
+                    while (basicIterator.hasNext()) {
+                        Map.Entry pair = (Map.Entry) basicIterator.next();
+
+                        String emailAddress = (String) pair.getValue();
+                        emailList.add(emailAddress);
+                    }
                 }
             }
 
@@ -101,6 +119,9 @@ public class RegisterActivity extends AppCompatActivity {
             public void onCancelled(DatabaseError databaseError) {
             }
         });
+    }
+
+    private boolean checkValidEmail(final String email) {
 
         if (emailList.size() == 0) {
             return false;
@@ -119,7 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private boolean pwdFormat(String pwd) {
-        return pwd.length() >= 6;
+        return pwd.length() >= 8;
     }
 
     private void showHintAlertDialog(String title, String message) {
@@ -158,6 +179,8 @@ public class RegisterActivity extends AppCompatActivity {
                                 if (!task.isSuccessful()) {
                                     signInFailed(task);
                                 }
+
+                                startActivity(new Intent(RegisterActivity.this, CalendarActivity.class));
                             }
                         });
                     } else {

@@ -169,7 +169,7 @@ public class LoginActivity extends AppCompatActivity {
 
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-        
+
         if (emailFormat(email) && passwordFormat(password)) {
             authentication.signInWithEmailAndPassword(email, password).addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                 @Override
@@ -202,7 +202,7 @@ public class LoginActivity extends AppCompatActivity {
                 if (databaseUser != null) {
                     BCGlobals.getInstance().setCurrentUser(databaseUser);
 
-                    if (databaseUser.getAdmin() == 1) {
+                    if (databaseUser.getAdmin() != 1) {
                         Intent intent = new Intent(getApplicationContext(), AdminOverviewActivity.class);
                         startActivity(intent);
                     } else {

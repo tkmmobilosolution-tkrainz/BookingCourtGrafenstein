@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
                     BCApplication.getApplication().getGlobals().setCurrentUser(databaseUser);
 
-                    if (databaseUser.getAdmin() == 1) {
+                    if (databaseUser.getAdmin() != 1) {
                         final Handler handler = new Handler();
                         handler.postDelayed(new Runnable() {
                             @Override

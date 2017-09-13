@@ -37,6 +37,11 @@ public class DatabaseHelper {
 
                         HashMap<String, String> userDetaiMap = (HashMap<String, String>) pair.getValue();
                         String admin = String.valueOf(userDetaiMap.get("admin"));
+
+                        if (admin.equals("false")) {
+                            admin = "0";
+                        }
+
                         String payment = String.valueOf(userDetaiMap.get("payment"));
 
                         BCUser currentUser = new BCUser();
